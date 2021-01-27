@@ -13,7 +13,7 @@
 #   with the info.
 # ____________________________________________________________________
 
-$ENV{"PATH"} = "/usr/bin:/usr/sbin:/bin:/sbin:/share/erda/macos/bin";
+$ENV{"PATH"} = "/usr/bin:/usr/sbin:/bin:/sbin:";
 $HOME = $ENV{"HOME"};
 $guesthtml = "$HOME/html_local/sys/guest.html";
 chomp ($today = `date`);
