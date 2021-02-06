@@ -13,6 +13,12 @@
 #   with the info.
 # ____________________________________________________________________
 
+<<<<<<< HEAD
+=======
+$ENV{"PATH"} = "/usr/bin/perl:";
+$HOME = $ENV{"HOME"};
+$guesthtml = "$HOME/html_local/sys/guest.html";
+>>>>>>> aa3b04b687b6c29945e40b569e429c88b51e1219
 chomp ($today = `date`);
 
 
