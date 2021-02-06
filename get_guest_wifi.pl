@@ -6,7 +6,7 @@ get_guest_wifi.pl
 
 =head1 DESCRIPTION
 
-Retrieve weekly "nyuguest" credentials, then generate HTML file with the same.
+Retrieve "nyuguest" network credentials, then generate an HTML file with the same.
 
 =cut
 
