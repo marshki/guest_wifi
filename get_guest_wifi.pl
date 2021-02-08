@@ -14,10 +14,12 @@ Retrieve "nyuguest" network credentials, then generate an HTML file with the sam
 #use strict;
 #use warnings;
 
-chop ($today = `date`);
+chop ($date_today = `date`);
 
 $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
-$roam = `curl -u "${m}:${g}" "$url" | grep table |grep Guest |grep Password`;
+$retrieve_url = `curl -u "${m}:${g}" "$url"; 
 
-print "$today\n$url\n";
+#$parse_index| grep table |grep Guest |grep Password`;
+
+print "$date_today\n$url\n";
