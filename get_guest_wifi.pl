@@ -18,4 +18,6 @@ chop ($today = `date`);
 
 $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
+$roam = `curl -u "${m}:${g}" "$url" | grep table |grep Guest |grep Password`;
+
 print "$today\n$url\n";
