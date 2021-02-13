@@ -1,0 +1,6 @@
+awk '/<table>/,/<\\table>/' derpy.html
+
+sed -n '/<table>/,/<\\table>/p' derpy.html
+
+grep -oP '(?<=<div class="Message"> ).*?(?= </div>)' derpy.html
+
