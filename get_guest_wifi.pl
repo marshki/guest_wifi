@@ -31,24 +31,35 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 # Today's date.
 
-chomp (our $date_today = `date`);
+our $date_today = `date`;
 
 # URL of interest.
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
-# Prompt for NetID.
+# NetID prompt.
 
-print "Enter you NetID: ";
-my $netid = <STDIN>;
-chomp ($netid);
-print ($netid . "\n");
+sub netid_prompt { 
+  print "Enter you NetID: ";
+
+  my $netid = <STDIN>;
+  chomp ($netid);
+
+  return $netid;
+} 
 
 # Pasword prompt.
 
-print "Enter your password : ";
-system ("stty -echo");
-chomp (my $passy = <STDIN>);
-system ("stty echo");
+sub passwd_prompt { 
 
-print ($passy . "\n");
+  print "Enter your password : ";
+
+  system ("stty -echo");
+  chomp (my $passwd = <STDIN>);
+  system ("stty echo");
+ 
+  return $passwd;
+}
+
+netid_prompt
+passwd_prompt
