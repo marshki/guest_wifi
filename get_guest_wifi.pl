@@ -48,7 +48,7 @@ sub netid_prompt {
   return $netid;
 } 
 
-# Pasword prompt.
+# Pasword prompt (UNIX only!).
 
 sub passwd_prompt { 
 
