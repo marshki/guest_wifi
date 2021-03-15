@@ -29,7 +29,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 =cut
 
 # Today's date.
-chop ($date_today = `date`);
+chomp ($date_today = `date`);
 print ($date_today . "\n");
 
 # URL of interest.
@@ -39,5 +39,17 @@ print ($url . "\n");
 # Prompt for NetID.
 print "Enter you NetID: ";
 $netid = <STDIN>;
-chop ($name); 
-print ($name . "\n");
+chomp ($netid); 
+print ($netid . "\n");
+
+# Pasword prompt.
+
+print "Enter The Password : ";  
+system ("stty -echo");  
+$passy = <STDIN>;  
+system ("stty echo");
+
+chomp ($passy);
+print ($passy . "\n");
+
+
