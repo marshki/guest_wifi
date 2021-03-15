@@ -8,8 +8,7 @@ print ($date_today = `date`);
 sub netid_prompt{
   print "Enter you NetID: ";
 
-  my $netid = <STDIN>;
-  chomp ($netid);
+  chomp (my $netid = <STDIN>);
 
   return $netid;
 }
@@ -21,9 +20,10 @@ sub passwd_prompt{
   system ("stty -echo");
   chomp (my $passwd = <STDIN>);
   system ("stty echo");
+
   return $passwd;
 }
 
 
 netid_prompt
-passwd_prompt
+#passwd_prompt
