@@ -42,8 +42,7 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 sub netid_prompt { 
   print "Enter you NetID: ";
 
-  my $netid = <STDIN>;
-  chomp ($netid);
+  chomp (my $netid = <STDIN>);
 
   return $netid;
 } 
