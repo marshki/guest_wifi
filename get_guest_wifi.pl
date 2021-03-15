@@ -60,5 +60,12 @@ sub passwd_prompt {
   return $passwd;
 }
 
+# Retrieve raw HTML page via curl. 
+
+$roam = `curl -u "${netid}:${passwd}" "$url" ;
+
+
+# | grep table | grep Guest | grep Password`;
+
 netid_prompt
 passwd_prompt
