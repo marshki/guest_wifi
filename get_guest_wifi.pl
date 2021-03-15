@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+use strict;
 use warnings;
 
 =pod
@@ -29,27 +30,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 =cut
 
 # Today's date.
-chomp ($date_today = `date`);
-print ($date_today . "\n");
+
+chomp (our $date_today = `date`);
 
 # URL of interest.
-$url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
-print ($url . "\n");
+
+our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 # Prompt for NetID.
+
 print "Enter you NetID: ";
-$netid = <STDIN>;
-chomp ($netid); 
+my $netid = <STDIN>;
+chomp ($netid);
 print ($netid . "\n");
 
 # Pasword prompt.
 
-print "Enter The Password : ";  
-system ("stty -echo");  
-$passy = <STDIN>;  
+print "Enter your password : ";
+system ("stty -echo");
+chomp (my $passy = <STDIN>);
 system ("stty echo");
 
-chomp ($passy);
 print ($passy . "\n");
-
-
