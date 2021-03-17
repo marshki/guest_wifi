@@ -5,6 +5,7 @@ use warnings;
 our $date_today = `date`;
 print ($date_today = `date`);
 
+
 sub netid_prompt{
   print "Enter you NetID: ";
 
@@ -15,15 +16,20 @@ sub netid_prompt{
 
 sub passwd_prompt{ 
 
-  print "Enter your password : ";
+  print "Enter your password: ";
 
   system ("stty -echo");
   chomp (my $passwd = <STDIN>);
   system ("stty echo");
 
   return $passwd;
+} 
+
+sub main{
+  netid_prompt();
+  passwd_prompt();
 }
 
 
-netid_prompt
-#passwd_prompt
+&main();
+
