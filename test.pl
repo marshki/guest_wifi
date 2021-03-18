@@ -3,11 +3,9 @@ use strict;
 use warnings;
  
 our $date_today = `date`;
-print ($date_today = `date`);
 
 my $netid;
 my $passwd; 
-
 
 sub netid_prompt {
   print "Enter you NetID: ";
@@ -23,14 +21,19 @@ sub passwd_prompt {
   system ("stty -echo");
   chomp ($passwd = <STDIN>);
   system ("stty echo" );
+  print "\n";
 
   return $passwd;
 } 
 
 sub main { 
+  
+  print ($date_today = `date`);
 
   netid_prompt();
   passwd_prompt();
+
+  print "Your NetID is: $netid and your password is: $passwd \n"
 
 } 
 
