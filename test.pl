@@ -2,8 +2,7 @@
 use strict; 
 use warnings;
  
-our $date_today = `date`;
-
+my $date_today = `date`;
 my $netid;
 my $passwd; 
 
@@ -28,7 +27,7 @@ sub passwd_prompt {
 
 sub main { 
   
-  print ($date_today = `date`);
+  print "$date_today";
 
   netid_prompt();
   passwd_prompt();
