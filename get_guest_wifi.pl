@@ -37,12 +37,18 @@ our $date_today = `date`;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
+# Additional variables.
+
+my $netid; 
+my $passwd; 
+my $parsed; 
+
 # NetID prompt.
 
 sub netid_prompt { 
-  print "Enter you NetID: ";
+  print "Enter you NetID: \n";
 
-  chomp (my $netid = <STDIN>);
+  chomp ($netid = <STDIN>);
 
   return $netid;
 } 
@@ -50,11 +56,10 @@ sub netid_prompt {
 # Pasword prompt (UNIX only!).
 
 sub passwd_prompt { 
-
-  print "Enter your password : ";
+  print "Enter your password: \n";
 
   system ("stty -echo");
-  chomp (my $passwd = <STDIN>);
+  chomp ($passwd = <STDIN>);
   system ("stty echo");
  
   return $passwd;
@@ -62,10 +67,23 @@ sub passwd_prompt {
 
 # Retrieve raw HTML page via curl. 
 
-$roam = `curl -u "${netid}:${passwd}" "$url" ;
+sub parsed_html { 
+  print "Parsing NYUROAM page... \n";
 
+  $parsed = `curl --user "{$netid:$passwd}" "$url"; 
+  #grep table | grep Guest | grep Password`;
+  print "$parsed"; 
 
-# | grep table | grep Guest | grep Password`;
+}
 
-netid_prompt
-passwd_prompt
+sub main() {
+
+  print "$date_today";
+
+  netid_prompt(); 
+  passwd_prompt(); 
+  parsed_html(); 
+
+}
+
+&main();
