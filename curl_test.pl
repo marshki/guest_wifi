@@ -4,8 +4,8 @@ use warnings;
 
 my $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 my $netid = "";
-my $passwd = "";
+my $passy = "\";
 
-my $retrieve = `curl -X POST -F 'username="${netid}"' -F 'password="${passwd}"' "$url"`;
+my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
 
 print "$retrieve";
