@@ -41,7 +41,7 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid; 
 my $passwd; 
-my $parsed; 
+my $parser; 
 
 # NetID prompt.
 
@@ -67,12 +67,12 @@ sub passwd_prompt {
 
 # Retrieve raw HTML page via curl. 
 
-sub parsed_html { 
+sub parse_html { 
   print "Parsing NYUROAM page... \n";
 
-  $parsed = `curl --user "{$netid:$passwd}" "$url"; 
+  $parser = `curl --user '$netid':'$passwd' "$url" -O`; 
   #grep table | grep Guest | grep Password`;
-  print "$parsed"; 
+  print "$parser"; 
 
 }
 
@@ -82,8 +82,7 @@ sub main() {
 
   netid_prompt(); 
   passwd_prompt(); 
-  parsed_html(); 
-
+  parse_html(); 
 }
 
 &main();
