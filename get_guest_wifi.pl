@@ -70,8 +70,7 @@ sub passwd_prompt {
 sub parse_html { 
   print "Parsing NYUROAM page... \n";
 
-  $parser = `curl --user '$netid':'$passwd' "$url" -O`; 
-  #grep table | grep Guest | grep Password`;
+  $parser = `curl --user '$netid':'$passwd' "$url" grep table | grep Guest | grep Password`;
   print "$parser"; 
 
 }
