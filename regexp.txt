@@ -1,6 +1,5 @@
-awk '/<table>/,/<\\table>/' derpy.html
+awk '/<td>/{a=$0}END{print a}' index.pl 
 
-sed -n '/<table>/,/<\\table>/p' derpy.html
+sed -n '/<table>/,/<\\table>/p' index.pl 
 
-grep -oP '(?<=<div class="Message"> ).*?(?= </div>)' derpy.html
-
+grep -oP '(?<=<div class="Message"> ).*?(?= </div>)' index.pl 
