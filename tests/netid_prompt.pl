@@ -5,7 +5,7 @@ use warnings;
 my $netid;
 my $test_0; 
 my $test_1;
-my $derp = "derp!";
+my $false_flag = "false_flag!";
 
 sub netid_prompt {
   print "Enter you NetID: ";
@@ -25,9 +25,10 @@ sub test_0 {
     print "False\n";
  }
 }
+
 sub test_1 {
-  $test_1 = $netid eq $derp; 
-  print "Comparing: $netid to: $derp \n";
+  $test_1 = $netid eq $false_flag; 
+  print "Comparing: $netid to: $false_flag \n";
 
   if ($test_1 == 1) {  
     print "True\n";
