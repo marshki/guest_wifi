@@ -5,7 +5,7 @@ use warnings;
 my $password;
 my $test_0; 
 my $test_1;
-my $derp = "derp!";
+my $false_flag = "false_flag!";
 
 sub password_prompt { 
   print "Enter your password: \n";
@@ -29,8 +29,8 @@ sub test_0 {
  }
 }
 sub test_1 {
-  $test_1 = $password eq $derp; 
-  print "Comparing: $password to: $derp \n";
+  $test_1 = $password eq $false_flag; 
+  print "Comparing: $password to: $false_flag \n";
 
   if ($test_1 == 1) {  
     print "True\n";
