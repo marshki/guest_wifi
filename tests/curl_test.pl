@@ -6,12 +6,17 @@ my $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 my $netid = "";
 my $passy = '';
 my $retrieve; 
-my $parser; 
 
-# my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
-my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
+
+# Pass creds to curl and extract ROI with "sed": 
+my $retrieve = `curl -u "${netid}:${passy}" "$url" |sed -n '/<td>/,/<\/td>/p'`;
 print "$retrieve";
 
+# Pass creds to curl and get page: 
+# my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
+# print "$retrieve";
 
-my $parser = sed -n '/<td>/,/<\/td>/p' $parser;
-print "$parser";
+# Pass creds to curl and extract ROI with "grep":
+# my $retrieve = `curl -u "${netid}:${passy}" "$url" |grep table| grep Guest| grep Password`;
+# print "$retrieve";
+
