@@ -12,7 +12,7 @@ my $parser;
 my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
 print "$retrieve";
 
-my $parser = (`awk '/<td>/{a=$0}END{print a}' "$retrieve"`);
+my $parser = (`awk '\<td>\{a=$0}END{print a}' "$retrieve"`);
 
 print "$parser";
 
@@ -21,10 +21,13 @@ print "$parser";
 # my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
 # print "$retrieve";
 
-#my $parser = `sed -n '/<td>/,/\</td>/p' "$retrieve"`;
-
-# This works:
+# This works, too:
 # Pass creds to curl and extract ROI with "grep":
 # my $retrieve = `curl -u "${netid}:${passy}" "$url" |grep table| grep Guest| grep Password`;
 # print "$retrieve";
+
+# These work on a file, but not, for some reason, when using a pipe: 
+
+# my $parser = `sed -n '/<td>/,/\</td>/p' "$retrieve"`;
+# my $parser = (`awk '\<td>\{a=$0}END{print a}' "$retrieve"`);
 
