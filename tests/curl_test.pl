@@ -4,16 +4,16 @@ use warnings;
 
 my $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 my $netid = "";
-my $passy = '';
+my $passy = "";
 my $retrieve; 
 my $parser;
 
-# Pass creds to curl and extract ROI with "sed": 
+# Pass creds to curl and extract ROI via regex parse: 
 my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
 print "$retrieve";
 
-my $parser = (`awk '\<td>\{a=$0}END{print a}' "$retrieve"`);
-
+my $parser = (`grep table|grep Guest|grep Password "$retrieve"`)  
+ 
 print "$parser";
 
 # This works: 
@@ -30,4 +30,3 @@ print "$parser";
 
 # my $parser = `sed -n '/<td>/,/\</td>/p' "$retrieve"`;
 # my $parser = (`awk '\<td>\{a=$0}END{print a}' "$retrieve"`);
-
