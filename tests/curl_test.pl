@@ -12,9 +12,8 @@ my $parser;
 my $retrieve = `curl -u "${netid}:${passy}" "$url"`;
 print "$retrieve";
 
-my $parser = (`grep table|grep Guest|grep Password "$retrieve"`)  
- 
-print "$parser";
+#my $parser = (`grep table|grep Guest|grep Password "$retrieve"`); 
+#print "$parser";
 
 # This works: 
 # Pass creds to curl and get page: 
