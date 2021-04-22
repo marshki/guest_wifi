@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 my $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
-my $netid = "";
+my $netid = "mjk235";
 my $passy = "";
 my $retrieve; 
 my $parser;
@@ -22,8 +22,8 @@ print "$retrieve";
 
 # This works, too:
 # Pass creds to curl and extract ROI with "grep":
-# my $retrieve = `curl -u "${netid}:${passy}" "$url" |grep table| grep Guest| grep Password`;
-# print "$retrieve";
+#my $retrieve = `curl -u "${netid}:${passy}" "$url" |grep table| grep Guest| grep Password`;
+#print "$retrieve";
 
 # These work on a file, but not, for some reason, when using a pipe: 
 
