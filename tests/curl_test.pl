@@ -2,23 +2,23 @@
 use strict; 
 use warnings;
 
-our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
+our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl" ;
 
-my $netid = "";
+my $netid = "\";
 my $passy = "\";
 
-# Pass creds to curl and extract ROI via regex parse: 
-
+# Pass credentials to curl, then retireve ROI.
 # Grep works, but can be more precise: 
 
-my $retrieve = `curl --user "${netid}:${passy}" "$url" > output.txt
+my $retrieve = `curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password` ;
 
-# |grep table |grep Guest |grep Password`;
+print "$retrieve" ;
 
+# Pass credentials to curl, then retireve ROI.
 # Awk works: 
 # These work on a file, but not, for some reason, when using a pipe: 
 
-# my $retrieve = `curl --user "${netid}:${passy}" "$url" |awk '\<td>\{a=$0}END{print a}'`;
+my $retrieve = `curl --user "${netid}:${passy}" "$url" |awk '\<td>\{a=$0}END{print a}'` ;
 
 print "$retrieve";
 
