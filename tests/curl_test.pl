@@ -10,15 +10,15 @@ my $passy = "\";
 # Pass credentials to curl, then retireve ROI.
 # Grep works, but can be more precise: 
 
-my $retrieve = `curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password` ;
+#my $retrieve = `curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password` ;
 
-print "$retrieve" ;
+#print "$retrieve" ;
 
 # Pass credentials to curl, then retireve ROI.
 # Awk works: 
 # These work on a file, but not, for some reason, when using a pipe: 
 
-my $retrieve = `curl --user "${netid}:${passy}" "$url" |awk '\<td>\{a=$0}END{print a}'` ;
+#my $retrieve = `curl --user "${netid}:${passy}" "$url" |awk '\<td>\{a=$0}END{print a}'` ;
 
 print "$retrieve";
 
