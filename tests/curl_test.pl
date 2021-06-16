@@ -10,27 +10,23 @@ my $passy = "\";
 # Pass credentials to curl, then retireve ROI.
 # Grep table: 
 
-#my $retrieve_table = `curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password` ;
-#print "$retrieve_passwd" ;
+# my $retrieve_table = `curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password` ;
+# print "$retrieve_table" ;
 
-# Pass credentials to curl, then retireve ROI.
-# Grep HTML tag: 
+my $parse_username = `curl --user "${netid}:${passy}" "$url" 2>/dev/null | awk -F '</*pre>' '$2{print $2}'` ;
 
-#my $retrieve_username = `curl --user "${netid}:${passy}" "$url" |grep ` ;
-#print "$retrieve_username" ;
+print "$parse_username" ; 
 
-#my $retrieve_passwd = `curl --user "${netid}:${passy}" "$url" |grep -o '<pre.*</pre>'` ;
-#print "$retrieve_passwd" ;
+#print "$retrieve_table" ;
+
+# my $parse_username = `awk -F '</*pre>' '$2{print $2}' "$retrieve_table"` ; 
+
+#print "$parse_username" ; 
+
+# awk -F '</*pre>' '$2{print $2}' parseMe
+
+# awk -F '</*td>' '$2{print $7}' index.pl
 
 
 ################################################################################
 # Pass credentials to curl, then retireve ROI.
-# Awk works: 
-# These work on a file, but not, for some reason, when using a pipe: 
-
-#my $retrieve = `curl --user "${netid}:${passy}" "$url" |awk '\<td>\{a=$0}END{print a}'` ;
-
-#print "$retrieve";
-
-# my $parser = `sed -n '/<td>/,/\</td>/p' "$retrieve"`;
-# my $parser = (`awk '\<td>\{a=$0}END{print a}' "$retrieve"`);
