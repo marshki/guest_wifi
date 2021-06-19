@@ -1,4 +1,4 @@
-# Parse entire table.
+### Parse index.pl to retrieve table.
 
 # awk 
 
@@ -8,20 +8,20 @@ awk '/<td>/{a=$0}END{print a}' parseMe
 
 # sed
 
-sed -n '/<table>/,/<\\table>/p' index.pl
+sed -n '/<table>/,/<\\table>/p' parseMe
 
 <table>
        <td><table border="1" cellspacing="0" cellpadding="5"><tr bgcolor="#AAAAAA" align="center" valign="center"><td><b>Guest ID</b></td> <td><b>Password</b></td></tr><tr bgcolor="#FFFFFF" align="center" valign="center"><td>guest160</td> <td><pre>ipfillyp</pre></td></tr></table>
  
 ----------------------------------------------------------------------------------------------------------------------------------------------
-# Get Guest ID. 
+### Parse index.pl to retrieve Guest ID. 
 
-awk -F '</*td>' '$2{print $7}' index.pl
+awk -F '</*td>' '$2{print $7}' parseMe 
 
 guest160
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
-# Get Guest Password
+### Parse index.pl to retriev Guest Password.
 
 awk -F '</*pre>' '$2{print $2}' parseMe
 
