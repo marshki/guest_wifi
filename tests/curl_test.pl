@@ -11,27 +11,20 @@ my $passy = "\" ;
 ### Pass credentials to curl, then retireve ROI.
 # grep table: 
 
-my $parse_table = `curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password` ;
+my $parse_table = (`curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password`) ;
 print "$parse_table" ;
 
-my $parse_username = `curl --user "${netid}:${passy}" "$url" | awk -F '</*pre>' '$2{print $2}'` ;
-print "parse_username" ;
+#my $parse_username = (`awk -F '</*pre>' '$2{print $2}' $parse_table`) ;
+#print "$parse_username" ;
 
 #$awk_parser = 
-
 #print "$awk_parser" ;
-
 #my $parse_username = `"$awk_parser" "retrieve_table"` ;
-
 #print "$parse_username" ;
-
 #my $parse_username = `awk -F '</*pre>' '$2{print $2}' "$retrieve_table"` ;
-
 #print "$parse_username" ;
-
 # awk -F '</*pre>' '$2{print $2}' parseMe
-
 # awk -F '</*td>' '$2{print $7}' parseMe
-
 ################################################################################
 # Pass credentials to curl, then retireve ROI.
+
