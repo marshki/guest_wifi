@@ -47,7 +47,7 @@ my $HTML;
 # NetID prompt.
 
 sub netid_prompt { 
-  print "Enter you NetID: \n";
+  print "Enter you NetID then press [Enter]: \n";
 
   chomp ($netid = <STDIN>);
 
@@ -57,7 +57,7 @@ sub netid_prompt {
 # Pasword prompt (UNIX only!).
 
 sub password_prompt { 
-  print "Enter your password: \n";
+  print "Enter your password then press [Enter]: \n";
 
   system ("stty -echo");
   chomp ($password = <STDIN>);
@@ -66,13 +66,12 @@ sub password_prompt {
   return $password;
 }
 
-# Retrieve raw HTML page via curl. 
+# Pass credentials to curl, and assign HTML to variable. 
 
 sub retrieve_HTML { 
-  print "Parsing NYUROAM page... \n";
+  print "Parsing HTML from NYUROAM page... \n";
 
-  $HTML = `curl --user '$netid':'$password' "$url"`;
-  print "$HTML"; 
+  $HTML = `curl --user '$netid':'$password' '$url'`;
 
 }
 
