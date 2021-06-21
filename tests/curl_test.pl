@@ -8,23 +8,24 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl" ;
 my $netid = "" ;
 my $passy = "\" ;
 
-### Pass credentials to curl, then retireve ROI.
-# grep table: 
+# Pass credentials to curl, extracting HTML. 
 
-my $parse_table = (`curl --user "${netid}:${passy}" "$url" |grep table |grep Guest| grep Password`) ;
-print "$parse_table" ;
+my @retrieve_HTML = (`curl --user "${netid}:${passy}" "$url"`) ;
 
-#my $parse_username = (`awk -F '</*pre>' '$2{print $2}' $parse_table`) ;
-#print "$parse_username" ;
+# Extract region of interest (ROI).
 
-#$awk_parser = 
-#print "$awk_parser" ;
-#my $parse_username = `"$awk_parser" "retrieve_table"` ;
-#print "$parse_username" ;
-#my $parse_username = `awk -F '</*pre>' '$2{print $2}' "$retrieve_table"` ;
-#print "$parse_username" ;
+my $parse_HTML = (grep { /table.*Guest.*Password/ } "@retrieve_HTML")[0] ;
+
+# Extract username. 
+
+my $guest_username = (split qr{</?td>}, "$parse_HTML")[6];
+print "$guest_username" ; 
+
+# Extract password.
+
+my $guest_password = (split qr{</?pre>}, "$parse_HTML")[1];
+print "$guest_password" ; 
+
 # awk -F '</*pre>' '$2{print $2}' parseMe
-# awk -F '</*td>' '$2{print $7}' parseMe
-################################################################################
-# Pass credentials to curl, then retireve ROI.
 
+# awk -F '</*td>' '$2{print $7}' parseMe
