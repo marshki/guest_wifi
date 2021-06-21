@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+
 use strict; 
 use warnings;
 use diagnostics;
@@ -19,9 +20,9 @@ my $parse_HTML = (grep { /table.*Guest.*Password/ } "@retrieve_HTML")[0] ;
 # Extract username from ROI.
 
 my $guest_username = (split qr{</?td>}, "$parse_HTML")[6];
-print "$guest_username" ; 
+print "$guest_username \n" ; 
 
 # Extract password from ROI.
 
 my $guest_password = (split qr{</?pre>}, "$parse_HTML")[1];
-print "$guest_password" ; 
+print "$guest_password \n" ; 
