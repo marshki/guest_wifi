@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use diagnostics;
 
 =pod
 
@@ -12,7 +13,7 @@ get_guest_wifi.pl
 
 =head1 DESCRIPTION
 
-Extract "nyuguest" WiFi credentials, then output to HTML file.
+Extract "nyuguest" WiFi credentials in Perl.
 
 =head1 LICENSE
 
@@ -40,8 +41,8 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 # Additional variables.
 
 my $netid; 
-my $passwd; 
-my $parser; 
+my $password; 
+my $HTML; 
 
 # NetID prompt.
 
@@ -55,23 +56,23 @@ sub netid_prompt {
 
 # Pasword prompt (UNIX only!).
 
-sub passwd_prompt { 
+sub password_prompt { 
   print "Enter your password: \n";
 
   system ("stty -echo");
-  chomp ($passwd = <STDIN>);
+  chomp ($password = <STDIN>);
   system ("stty echo");
  
-  return $passwd;
+  return $password;
 }
 
 # Retrieve raw HTML page via curl. 
 
-sub parse_html { 
+sub retrieve_HTML { 
   print "Parsing NYUROAM page... \n";
 
-  $parser = `curl --user '$netid':'$passwd' "$url" |grep table | grep Guest | grep Password`;
-  print "$parser"; 
+  $HTML = `curl --user '$netid':'$password' "$url"`;
+  print "$HTML"; 
 
 }
 
@@ -80,8 +81,8 @@ sub main() {
   print "$date_today";
 
   netid_prompt(); 
-  passwd_prompt(); 
-  parse_html(); 
+  password_prompt(); 
+  retrieve_HTML(); 
 }
 
 &main();
