@@ -7,15 +7,17 @@ use diagnostics;
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl" ;
 
 my $netid = "" ;
-my $passy = "" ;
+my $password = "" ;
 
 # Pass credentials to curl, assigning HTML to variable.  
 
-my @retrieve_HTML = (`curl --user ${netid}:${passy} $url`) ;
+my @retrieve_HTML = (`curl --user ${netid}:${password} $url`) ;
 
 # Extract region of interest (ROI) from HTML.
 
 my $parse_HTML = (grep { /table.*Guest.*Password/ } @retrieve_HTML)[0] ;
+
+print "$parse_HTML";
 
 # Extract username from ROI.
 
