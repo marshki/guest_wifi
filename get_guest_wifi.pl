@@ -43,7 +43,8 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 my $netid; 
 my $password; 
 my $HTML; 
-#my $parse_HTML; 
+my @HTML;
+my $HTML_table; 
 
 # NetID prompt.
 
@@ -73,21 +74,16 @@ sub retrieve_HTML {
   print "Retrieving HTML from NYUROAM page... \n";
 
   $HTML = `curl --user '$netid':'$password' '$url'`;
-
-  print "$HTML";
 }
 
 # Extract region of interest (ROI) from HTML. 
 
-#sub parse { 
-#  print "Parsing HTML from NYUROAM page... \n";
+sub parse_table { 
+  print "Parsing HTML from NYUROAM page... \n";
   
-#  $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
+  $HTML_table = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
-#  print "$parse_HTML";
-
-#}
-
+}
 
 sub main() {
 
@@ -96,7 +92,7 @@ sub main() {
   netid_prompt(); 
   password_prompt(); 
   retrieve_HTML(); 
-  #parse();
+  parse_table();
 }
 
 &main();
