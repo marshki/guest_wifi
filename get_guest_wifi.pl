@@ -45,6 +45,8 @@ my $password;
 my $HTML; 
 my @HTML;
 my $HTML_table; 
+my $guest_username;
+my $guest_password;
 
 # NetID prompt.
 
@@ -54,6 +56,7 @@ sub netid_prompt {
   chomp ($netid = <STDIN>);
 
   return $netid;
+
 } 
 
 # Pasword prompt (UNIX only!).
@@ -66,6 +69,7 @@ sub password_prompt {
   system ("stty echo");
  
   return $password;
+
 }
 
 # Pass credentials to curl, and assign HTML to variable. 
@@ -74,6 +78,7 @@ sub retrieve_HTML {
   print "Retrieving HTML from NYUROAM page... \n";
 
   $HTML = `curl --user '$netid':'$password' '$url'`;
+
 }
 
 # Extract region of interest (ROI) from HTML. 
@@ -85,6 +90,18 @@ sub parse_table {
 
 }
 
+sub parse_username {
+  $guest_username = (split qr{</?td>}, $HTML_table)[6];
+  print "Guest username: $guest_username \n" ; 
+
+} 
+
+sub parse_password {
+  $guest_password = (split qr{</?pre>}, $HTML_table)[1];
+  print "Guest password: $guest_password \n" ; 
+
+}
+
 sub main() {
 
   print "$date_today";
@@ -93,6 +110,9 @@ sub main() {
   password_prompt(); 
   retrieve_HTML(); 
   parse_table();
+  parse_username();
+  parse_password();
+
 }
 
 &main();
