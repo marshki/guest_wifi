@@ -7,18 +7,17 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl" ;
 
 my $netid = "" ;
 my $password = "" ;
-my $HTML;
 
 =begin retrieve_HTML
 Pass credentials to curl, assigining extracted page to $HTML.
 =cut
 
 sub retrieve_HTML {
-  print "Retrieving HTML from NYUROAM page... \n";
+  print "Retrieving HTML from NYUROAM page... \n" ;
 
-  my @HTML = (`curl --user ${netid}:${password} $url`) ;
+  our $HTML = (`curl --user ${netid}:${password} $url`) ;
 
-  print "@HTML"; 
+  print "$HTML"; 
 }
 
 retrieve_HTML();
