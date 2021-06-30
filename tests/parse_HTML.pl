@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# "parsing" may be a better variable name
+
 use strict;
 use warnings;
 use diagnostics;
@@ -21,7 +23,7 @@ sub retrieve_HTML {
 }
 
 sub parse_HTML {
-  print "Parsing Region of Interest from HTML... \n"; 
+  print "Parsing region of interest from HTML... \n"; 
 
   $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
