@@ -29,6 +29,10 @@ sub parse_HTML {
 
 }
 
+# can we combine the following with, e.g. : |
+# ref: https://stackoverflow.com/questions/56485712/how-to-combine-two-regex-pattern-in-perl
+
+
 sub parse_guest_username {
   print "Extracting guest username... \n"; 
 
