@@ -4,9 +4,10 @@ use warnings;
 use diagnostics;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl" ;
-
 my $netid = "" ;
 my $password = "" ;
+my @HTML;
+our $parse_HTML; 
 
 =begin parse_HTML
 Extract region of interest (table) from HTML.
@@ -15,23 +16,22 @@ Extract region of interest (table) from HTML.
 sub retrieve_HTML {
   print "Retrieving HTML from NYUROAM page... \n";
 
-  our $HTML = (`curl --user ${netid}:${password} $url`) ;
- 
+  @HTML = (`curl --user ${netid}:${password} $url`);
+
 }
 
-sub parse_table {
-  print "Parsing HTML from NYUROAM page... \n";
+sub parse_HTML {
+  print "Parsing Region of Interest from HTML... \n"; 
 
-  our $HTML_table = (grep { /table.*Guest.*Password/ } $HTML)[0];
+  $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
-  print "$HTML_table"; 
+  print "$parse_HTML";
 }
-
 
 sub main() {
 
   retrieve_HTML();
-  parse_table();
+  parse_HTML(); 
 }
 
 &main();
