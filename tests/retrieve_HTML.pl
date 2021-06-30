@@ -15,9 +15,8 @@ Pass credentials to curl, assigining extracted page to $HTML.
 sub retrieve_HTML {
   print "Retrieving HTML from NYUROAM page... \n" ;
 
-  our $HTML = (`curl --user ${netid}:${password} $url`) ;
+  my $HTML = (`curl --user ${netid}:${password} $url`) ;
 
-  print "$HTML"; 
 }
 
 retrieve_HTML();
