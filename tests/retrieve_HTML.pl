@@ -10,15 +10,15 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 my $netid = "";
 my $password = "";
 
-=begin retrieve_HTML
-Pass credentials to curl, assigining extracted page to $HTML.
+=begin scrape_HTML
+Pass credentials to curl. Scrape and assign page to $HTML.
 =cut
 
-sub retrieve_HTML {
+sub scrape_HTML {
   print "Retrieving HTML from NYUROAM page... \n";
 
   return my $HTML = (`curl --user ${netid}:${password} $url`);
 
 }
 
-retrieve_HTML();
+scrape_HTML();
