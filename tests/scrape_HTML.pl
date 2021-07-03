@@ -10,7 +10,7 @@ my $netid = "";
 my $password = "";
 
 =begin scrape_HTML
-Pass credentials to curl. Scrape and assign page to $HTML.
+Pass credentials to curl. Scrape, then assign page to HTML.
 =cut
 
 sub scrape_HTML {
