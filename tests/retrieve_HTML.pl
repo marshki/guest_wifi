@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# "scraping" may be a better variable name 
+
 use strict;
 use warnings;
 use diagnostics;
@@ -15,7 +17,7 @@ Pass credentials to curl, assigining extracted page to $HTML.
 sub retrieve_HTML {
   print "Retrieving HTML from NYUROAM page... \n";
 
-  my $HTML = (`curl --user ${netid}:${password} $url`);
+  return my $HTML = (`curl --user ${netid}:${password} $url`);
 
 }
 
