@@ -10,11 +10,11 @@ my $netid = "";
 my $password = "";
 
 =begin scrape_HTML
-Pass credentials to curl. Scrape, then assign page to HTML.
+Pass credentials to curl. Scrape, then assign table to "HTML".
 =cut
 
 sub scrape_HTML {
-  print "Retrieving HTML from NYUROAM page... \n";
+  print "Scraping HTML from NYUROAM page... \n";
 
   return my $HTML = (`curl --user ${netid}:${password} $url`);
 
