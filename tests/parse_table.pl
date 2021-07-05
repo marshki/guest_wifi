@@ -15,14 +15,14 @@ Extract region of interest (ROI) from HTML.
 =cut
 
 sub scrape_HTML {
-  print "Retrieving HTML from NYUROAM page... \n";
+  print "Scraping HTML from NYUROAM page... \n";
 
-  @HTML = (`curl --user ${netid}:${password} $url`);
+  return @HTML = (`curl --user ${netid}:${password} $url`);
 
 }
 
 sub parse_table {
-  print "Parsing region of interest from HTML... \n"; 
+  print "Parsing region of interest (ROI) from HTML... \n"; 
 
   return $parsed_table = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
