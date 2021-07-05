@@ -8,8 +8,8 @@ my $netid = "";
 my $password = "";
 my @HTML;
 our $parse_HTML; 
-my $guest_username;
-my $guest_password;
+our $guest_username;
+our $guest_password;
 
 =begin parse_guest_username/password
 Extract region of interest (username, password) from parse_HTML.
@@ -18,14 +18,14 @@ Extract region of interest (username, password) from parse_HTML.
 sub retrieve_HTML {
   print "Retrieving HTML from NYUROAM page... \n";
 
-  @HTML = (`curl --user ${netid}:${password} $url`);
+  return @HTML = (`curl --user ${netid}:${password} $url`);
 
 }
 
 sub parse_HTML {
   print "Parsing region of interest from HTML... \n"; 
 
-  $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
+  return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
 }
 
@@ -33,15 +33,13 @@ sub parse_guest_username {
   print "Extracting guest username... \n"; 
 
   $guest_username = (split qr{</?td>}, $parse_HTML)[6];
-  print "Guest Username: $guest_username \n" ; 
 
 }
 
 sub parse_guest_password {
   print "Extracting guest password... \n"; 
 
-  my $guest_password = (split qr{</?pre>}, $parse_HTML)[1];
-  print "Guest password: $guest_password \n" ; 
+  $guest_password = (split qr{</?pre>}, $parse_HTML)[1];
 
 }
 
@@ -50,6 +48,8 @@ sub main() {
   parse_HTML(); 
   parse_guest_username();
   parse_guest_password();
+  print "Guest username: $guest_username \n" ; 
+  print "Guest password: $guest_password \n" ; 
 }
 
 &main();
