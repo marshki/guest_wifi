@@ -7,6 +7,11 @@ my $test_0;
 my $test_1;
 my $false_flag = "false_flag!";
 
+=begin password_prompt 
+Prompt user for password.
+TODO:Add exception handling.
+=cut
+
 sub password_prompt { 
   print "Enter your password: \n";
 
