@@ -18,22 +18,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <M. Krinitz> <mjk235 [at] nyu [dot] edu>
 =cut
 
-# Today's date.
-
 our $date_today = `date`;
 
-# URL of interest.
-
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
-
-# Additional variables.
 
 my $netid; 
 my $password; 
 my @HTML;
 our $parse_HTML;
-my $guest_username;
-my $guest_password;
+our $guest_username;
+our $guest_password;
 
 # NetID prompt.
 
@@ -59,33 +53,34 @@ sub password_prompt {
 
 }
 
-# Pass credentials to curl, and assign HTML to variable. 
+# Pass credentials to curl, and assign page to "@HTML". 
 
-sub retrieve_HTML { 
+sub scrape_HTML { 
   print "Retrieving HTML from NYUROAM page... \n";
 
-  @HTML = (`curl --user '$netid':'$password' '$url'`);
+  return @HTML = (`curl --user '$netid':'$password' '$url'`);
 
-  return @HTML;
 }
 
-# Extract region of interest (ROI) from HTML. 
+# Extract region of interest (ROI) from "@HTML". 
 
 sub parse_table { 
-  print "Parsing region of interest from HTML... \n";
+  print "Parsing region of interest (ROI) from HTML... \n";
 
-  $HTML_table = (grep { /table.*Guest.*Password/ } @HTML)[0];
+  return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
 }
 
+# Parse guest username from "$parse_HTML".
+
 sub parse_username {
-  $guest_username = (split qr{</?td>}, $HTML_table)[6];
+  $guest_username = (split qr{</?td>}, $parse_HTML)[6];
   print "Guest username: $guest_username \n" ; 
 
 } 
 
 sub parse_password {
-  $guest_password = (split qr{</?pre>}, $HTML_table)[1];
+  $guest_password = (split qr{</?pre>}, $parse_HTML)[1];
   print "Guest password: $guest_password \n" ; 
 
 }
@@ -96,7 +91,7 @@ sub main() {
 
   netid_prompt(); 
   password_prompt(); 
-  retrieve_HTML(); 
+  scrape_HTML(); 
   parse_table();
   parse_username();
   parse_password();
