@@ -7,6 +7,11 @@ my $test_0;
 my $test_1;
 my $false_flag = "false_flag!";
 
+=begin netid_prompt
+Prompt user for NetID.
+TODO:Add exception handling.
+=cut
+
 sub netid_prompt {
   print "Enter you NetID: ";
 
