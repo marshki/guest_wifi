@@ -75,13 +75,11 @@ sub parse_table {
 
 sub parse_username {
   $guest_username = (split qr{</?td>}, $parse_HTML)[6];
-  print "Guest username: $guest_username \n" ; 
 
 } 
 
 sub parse_password {
   $guest_password = (split qr{</?pre>}, $parse_HTML)[1];
-  print "Guest password: $guest_password \n" ; 
 
 }
 
@@ -95,6 +93,9 @@ sub main() {
   parse_table();
   parse_username();
   parse_password();
+ 
+  print "Guest username: $guest_username \n" ; 
+  print "Guest password: $guest_password \n" ; 
 
 }
 
