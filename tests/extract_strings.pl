@@ -23,21 +23,21 @@ sub scrape_HTML {
 }
 
 sub parse_table {
-  print "Parsing region of interest from HTML... \n"; 
+  print "Parsing region of interest (ROI) from HTML... \n"; 
 
   return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
 }
 
-sub extract_guest_username {
-  print "Extracting guest username... \n"; 
+sub parse_guest_username {
+  print "Parsing guest username... \n"; 
 
   $guest_username = (split qr{</?td>}, $parse_HTML)[6];
 
 }
 
-sub extract_guest_password {
-  print "Extracting guest password... \n"; 
+sub parse_guest_password {
+  print "Parsing guest password... \n"; 
 
   $guest_password = (split qr{</?pre>}, $parse_HTML)[1];
 
@@ -46,8 +46,8 @@ sub extract_guest_password {
 sub main() {
   scrape_HTML();
   parse_table(); 
-  extract_guest_username();
-  extract_guest_password();
+  parse_guest_username();
+  parse_guest_password();
   print "Guest username: $guest_username \n" ; 
   print "Guest password: $guest_password \n" ; 
 }
