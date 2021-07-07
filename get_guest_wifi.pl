@@ -22,8 +22,8 @@ our $date_today = `date`;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
-my $netid; 
-my $password; 
+my $netid;
+my $password;
 my @HTML;
 our $parse_HTML;
 our $guest_username;
@@ -31,18 +31,18 @@ our $guest_password;
 
 # NetID prompt.
 
-sub netid_prompt { 
+sub netid_prompt {
   print "Enter you NetID then press [Enter]: \n";
 
   chomp ($netid = <STDIN>);
 
   return $netid;
 
-} 
+}
 
 # Pasword prompt (UNIX only!).
 
-sub password_prompt { 
+sub password_prompt {
   print "Enter your password then press [Enter]: \n";
 
   system ("stty -echo");
@@ -53,49 +53,51 @@ sub password_prompt {
 
 }
 
-# Pass credentials to curl, and assign page to "@HTML". 
+# Pass credentials to curl, and assign page to "@HTML".
 
-sub scrape_HTML { 
+sub scrape_HTML {
   print "Retrieving HTML from NYUROAM page... \n";
 
   return @HTML = (`curl --user '$netid':'$password' '$url'`);
 
 }
 
-# Extract region of interest (ROI) from "@HTML". 
+# Extract region of interest (ROI) from "@HTML".
 
-sub parse_table { 
+sub parse_table {
   print "Parsing region of interest (ROI) from HTML... \n";
 
   return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML)[0];
 
 }
 
-# Parse guest username from "$parse_HTML".
+# Parse guest username, password from: "$parse_HTML".
 
 sub parse_username {
   $guest_username = (split qr{</?td>}, $parse_HTML)[6];
 
-} 
+}
 
 sub parse_password {
   $guest_password = (split qr{</?pre>}, $parse_HTML)[1];
 
 }
 
+# Wrapper.
+
 sub main() {
 
   print "$date_today";
 
-  netid_prompt(); 
-  password_prompt(); 
-  scrape_HTML(); 
+  netid_prompt();
+  password_prompt();
+  scrape_HTML();
   parse_table();
   parse_username();
   parse_password();
  
-  print "Guest username: $guest_username \n" ; 
-  print "Guest password: $guest_password \n" ; 
+  print "Guest username: $guest_username \n";
+  print "Guest password: $guest_password \n";
 
 }
 
