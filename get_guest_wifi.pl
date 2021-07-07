@@ -87,7 +87,7 @@ sub parse_password {
 
 sub main() {
 
-  print "$date_today";
+  print "Current time: $date_today";
 
   netid_prompt();
   password_prompt();
