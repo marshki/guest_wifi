@@ -1,5 +1,8 @@
+#!/usr/bin/perl
+
+use warnings;
 use LWP::Simple;
-my $url="http://cpan.org";
-if (! head($url)) {
-  die "The Server is DOWN!!!!" 
-}
+
+my $cont = get('https://geekberg.info') or die 'Unable to get page';
+
+say $cont;
