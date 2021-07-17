@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 
+# Off LAN: 599
+# On LAN, avec credentials:
+# On LAN, sans credentials: 401
+
 use strict;
 use warnings;
 use diagnostics;
@@ -20,6 +24,12 @@ for my $url (@urls) {
     my $response = $Client->get($url);
     say $url, ": ", $response->{status};
 }
+
+
+# TODO: 
+# * pass creds to POST request
+# * get good response code
+# * if then for 200 status
 
 #sub URL_status_check {
 #  if(expression) {
