@@ -4,6 +4,8 @@
 # On LAN, avec credentials:
 # On LAN, sans credentials: 401
 
+# Tiny doc: https://metacpan.org/pod/HTTP%3a%3aTiny
+
 use strict;
 use warnings;
 use diagnostics;
