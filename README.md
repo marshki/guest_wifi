@@ -1,3 +1,5 @@
+![Perl](https://img.shields.io/badge/perl-%2339457E.svg?style=for-the-badge&logo=perl&logoColor=white)
+
 ## NAME
 
 guest_wifi - Extract weekly "nyuguest" WiFi credentials.
@@ -6,13 +8,13 @@ guest_wifi - Extract weekly "nyuguest" WiFi credentials.
 
 Extract weekly "[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a8a044d20348ce1050e13&id=kb_article_view&sysparm_rank=12&sysparm_tsqueryId=0bd7a2721b537810839598651a4bcbda)" WiFi credentials using Perl. Requires access to NYU-NET--campus wide-area network (WAN)--and a valid NetID.
 
-Credentials are valid for one (1) week from 12:00:01 Monday.
+Credentials are valid for one (1) week from 12:00:01 every Monday.
 
 #### AUTHOR
 
 M. Krinitz <mjk235 [at] nyu [dot] edu>
 
-#### LICENSE 
+#### LICENSE
 
 Copyright <2021> <M. Krinitz>
 
