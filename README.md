@@ -1,10 +1,6 @@
-### Name
+### NAME
 
 guest_wifi - Extract weekly "nyuguest" WiFi credentials.
-
-## VERSION
-
-version 0.1
 
 ## SYNOPSIS
 
@@ -13,5 +9,3 @@ Extract weekly "[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a
 # AUTHOR
 
 # LICENSE  
-
-
