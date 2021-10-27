@@ -16,7 +16,6 @@ Credentials are valid for one (1) week from 12:00:01 EST Monday.
 Sample output:
 
 | Guest Username| Guest Password |
-| -----------   | -----------    |
 | guest160      | ataichme       |
 
 #### AUTHOR
