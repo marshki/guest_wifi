@@ -1,12 +1,9 @@
 #!/usr/bin/perl -w
 use strict; 
 use warnings;
-use Test::More qw( no_plan)
+use Test::Simple tests => 1;
 
 my $netid;
-my $test_0; 
-my $test_1;
-my $false_flag = "false_flag!";
 
 =begin netid_prompt
 Prompt user for NetID.
@@ -20,30 +17,6 @@ sub netid_prompt {
   return $netid;
 }
 
-sub test_0 {
-  $test_0 = $netid eq $netid; 
-  print "Comparing: $netid to: $netid \n";
-
-  if ($test_0 == 1) {  
-    print "True\n";
-  }
-  else {
-    print "False\n";
- }
-}
-
-sub test_1 {
-  $test_1 = $netid eq $false_flag; 
-  print "Comparing: $netid to: $false_flag \n";
-
-  if ($test_1 == 1) {  
-    print "True\n";
-  }
-  else {
-    print "False\n";
- }
-}
+ok( $netid is $netid ); 
 
 netid_prompt();
-test_0();
-test_1();
