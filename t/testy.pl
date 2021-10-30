@@ -1,9 +1,11 @@
 #!/usr/bin/perl -w
 use strict; 
 use warnings;
+
 use Test::Simple tests => 1;
 
 my $netid;
+my $test_netid="mjk235";
 
 =begin netid_prompt
 Prompt user for NetID.
@@ -17,6 +19,6 @@ sub netid_prompt {
   return $netid;
 }
 
-ok( $netid is $netid ); 
-
 netid_prompt();
+
+ok( $netid eq $test_netid ); 
