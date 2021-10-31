@@ -7,6 +7,7 @@ use Test::Simple tests => 1;
 my $password;
 
 =begin password_prompt 
+(UNIX only!)
 Prompt user for input. Null string is not valid.
 Returns: string
 =cut
