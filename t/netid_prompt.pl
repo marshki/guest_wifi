@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 use warnings;
+use diagnostics;
 
 use Test::Simple tests => 1;
 
