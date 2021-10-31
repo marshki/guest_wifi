@@ -1,13 +1,14 @@
 #!/usr/bin/perl -w
-
 use strict;
 use warnings;
+
+use Test::Simple tests => 1;
 
 my $netid;
 
 =begin netid_prompt
-Returns: NetID credential.
-Prompt user for input.
+Prompt user for input. Null string is not valid.
+Returns: netid
 =cut
 
 sub netid_prompt {
@@ -22,6 +23,8 @@ sub netid_prompt {
     
   }
   return $netid;
-}    
+}
 
 netid_prompt;
+
+ok( $netid eq $netid );
