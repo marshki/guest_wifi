@@ -6,7 +6,8 @@ use warnings;
 my $netid;
 
 =begin netid_prompt
-Prompt user for NetID.
+Returns: NetID credential.
+Prompt user for input.
 =cut
 
 sub netid_prompt {
@@ -17,7 +18,7 @@ sub netid_prompt {
     chomp($netid = <STDIN>);
               
     last if $netid ne '';
-    print "Try again!\n";
+    print "No input detected!\n";
     
   }
   return $netid;
