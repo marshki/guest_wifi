@@ -1,50 +1,32 @@
 #!/usr/bin/perl -w
-use strict; 
+use strict;
 use warnings;
 
+use Test::Simple tests => 1;
+
 my $password;
-my $test_0; 
-my $test_1;
-my $false_flag = "false_flag!";
 
 =begin password_prompt 
-Prompt user for password.
-TODO:Add exception handling.
+Prompt user for input. Null string is not valid.
+Returns: string
 =cut
 
 sub password_prompt { 
-  print "Enter your password: \n";
 
-  system ("stty -echo");
-  chomp ($password = <STDIN>);
-  system ("stty echo");
- 
+  while (1) {
+    print "Enter your password: \n";
+
+    system ("stty -echo");
+    chomp ($password = <STDIN>);
+    system ("stty echo");
+
+    last if $password ne '';
+    print "No input detected!\n";
+
+  } 
   return $password;
 }
 
-sub test_0 {
-  $test_0 = $password eq $password; 
-  print "Comparing: $password to: $password \n";
-
-  if ($test_0 == 1) {  
-    print "True\n";
-  }
-  else {
-    print "False\n";
- }
-}
-sub test_1 {
-  $test_1 = $password eq $false_flag; 
-  print "Comparing: $password to: $false_flag \n";
-
-  if ($test_1 == 1) {  
-    print "True\n";
-  }
-  else {
-    print "False\n";
- }
-}
-
 password_prompt();
-test_0();
-test_1();
+
+ok( $password eq $password );
