@@ -8,7 +8,7 @@ my $netid;
 
 =begin netid_prompt
 Prompt user for input. Null string is not valid.
-Returns: netid
+Returns: string
 =cut
 
 sub netid_prompt {
