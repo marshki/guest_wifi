@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use diagnostics;
 
+use Test::Simple tests => 1;
+
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid = "";
@@ -23,4 +25,5 @@ sub scrape_HTML {
 }
 
 scrape_HTML();
-print @HTML;
+
+ok( @HTML eq @HTML );
