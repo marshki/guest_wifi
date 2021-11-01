@@ -13,7 +13,6 @@ my $password = "\";
 my @HTML; 
 
 =begin scrape_HTML
-Pass credentials to curl. 
 Scrape, then return parsed table to "HTML".
 =cut
 
