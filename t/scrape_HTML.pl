@@ -7,7 +7,8 @@ use diagnostics;
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid = "";
-my $password = "";
+my $password = "\";
+my @HTML; 
 
 =begin scrape_HTML
 Pass credentials to curl. 
@@ -17,7 +18,9 @@ Scrape, then return parsed table to "HTML".
 sub scrape_HTML {
   print "Scraping HTML from NYUROAM page... \n";
 
-  return my $HTML = (`curl --user ${netid}:${password} $url`);
+  return @HTML = (`curl --user ${netid}:${password} $url`);
+
 }
 
 scrape_HTML();
+print @HTML;
