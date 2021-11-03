@@ -91,8 +91,8 @@ Extract region of interest (ROI) from HTML.
 sub parse_table {
   print "Parsing region of interest (ROI) from HTML... \n"; 
 
-  $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML) [0];
-  # return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML) [0];
+  # $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML) [0];
+  return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML) [0];
 
 }
 
