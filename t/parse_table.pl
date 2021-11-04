@@ -9,7 +9,7 @@ use Test::Simple tests => 2;
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid = "";
-my $password = "\";
+my $password = "";
 my @HTML;
 
 our $parse_HTML;
