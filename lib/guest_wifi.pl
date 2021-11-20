@@ -63,25 +63,35 @@ our $guest_password;
 # NetID prompt.
 
 sub netid_prompt {
-  print "Enter you NetID then press [Enter]: \n";
 
-  chomp ($netid = <STDIN>);
+  while (1) {
+    print "Enter your NetID: ";
 
+    chomp($netid = <STDIN>);
+              
+    last if $netid ne '';
+    print "No input detected!\n";
+    
+  }
   return $netid;
-
 }
 
 # Pasword prompt (UNIX only!).
 
-sub password_prompt {
-  print "Enter your password then press [Enter]: \n";
+sub password_prompt { 
 
-  system ("stty -echo");
-  chomp ($password = <STDIN>);
-  system ("stty echo");
+  while (1) {
+    print "Enter your password: \n";
 
+    system ("stty -echo");
+    chomp ($password = <STDIN>);
+    system ("stty echo");
+
+    last if $password ne '';
+    print "No input detected!\n";
+
+  } 
   return $password;
-
 }
 
 # Pass credentials to curl, and assign page to "@HTML".
