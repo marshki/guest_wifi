@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+# For reference: https://metacpan.org/pod/HTML::Tiny
 
 use HTTP::Tiny;
 
