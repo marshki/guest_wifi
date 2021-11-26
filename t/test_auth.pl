@@ -1,4 +1,5 @@
 #!/usr/bin/perl -w
+# For reference: https://metacpan.org/pod/LWP::UserAgent
 
 use v5.30;
 
