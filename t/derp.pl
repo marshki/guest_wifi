@@ -10,7 +10,7 @@ use LWP::UserAgent;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
-my $netid = "\";
+my $netid = "";
 my $password = "\";
 
 my $ua = LWP::UserAgent->new();
