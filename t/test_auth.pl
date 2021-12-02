@@ -10,6 +10,7 @@ use warnings;
 use diagnostics;
 
 use LWP::UserAgent;
+use Mozilla::CA;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
@@ -20,6 +21,8 @@ my $ua = LWP::UserAgent->new();
 
 my $req = new HTTP::Request(GET => $url);
 
+my $response;
+
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
 =cut
@@ -27,10 +30,17 @@ Scrape, then return parsed table to "HTML".
 sub scrape_HTML {
   print "Scraping HTML from NYUROAM page... \n";
 
-  return $req->authorization_basic($netid, $password);
+  $req->authorization_basic($netid, $password);
+  return $response = $ua->request($req);
 }
+
+#sub scrape_HTML {
+#  print "Scraping HTML from NYUROAM page... \n";
+
+#  return $req->authorization_basic($netid, $password);
+#}
    
 scrape_HTML();
   
-my $response = $ua->request($req);
+#my $response = $ua->request($req);
 say $response->as_string();
