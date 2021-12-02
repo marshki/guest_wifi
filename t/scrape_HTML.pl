@@ -18,7 +18,7 @@ my $ua = LWP::UserAgent->new();
 
 my $req = new HTTP::Request(GET => $url);
 
-my $response;
+our $HTML;
 
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
@@ -28,9 +28,9 @@ sub scrape_HTML {
   print "Scraping HTML from NYUROAM page... \n";
 
   $req->authorization_basic($netid, $password);
-  return $response = $ua->request($req);
+  return $HTML = $ua->request($req);
 }
 
 scrape_HTML();
   
-print $response->as_string();
+print $HTML->as_string();
