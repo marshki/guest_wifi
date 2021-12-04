@@ -6,6 +6,8 @@ use strict;
 use warnings;
 use diagnostics;
 
+use Test::Simple tests => 1;
+
 use LWP::UserAgent;
 use Mozilla::CA;
 
@@ -13,6 +15,7 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid = "";
 my $password = "";
+my @HTML;
      
 my $ua = LWP::UserAgent->new();
 
@@ -32,5 +35,6 @@ sub scrape_HTML {
 }
 
 scrape_HTML();
-  
 print $HTML->as_string();
+
+ok( @HTML eq @HTML );
