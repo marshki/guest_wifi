@@ -1,8 +1,9 @@
 #!/usr/bin/perl -w
 
-require LWP::UserAgent;
+use LWP::UserAgent;
  
 my $ua = LWP::UserAgent->new;
+$ua->credentials('', '');
 $ua->timeout(10);
  
 my $response = $ua->get('https://nyuroam-guest.nyu.edu/cgi-bin/index.pl/');
