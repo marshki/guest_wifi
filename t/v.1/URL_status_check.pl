@@ -17,6 +17,12 @@ use Mozilla::CA;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
+#my @urls = (
+#    'https://www.google.com',
+#    'http://nosuchsiteexists.com',
+#    'https://nyuroam-guest.nyu.edu/cgi-bin/index.pl',
+#);
+
 my $netid = "";
 my $password = "";
      
@@ -35,17 +41,10 @@ else {
   die $response->status_line;
 };
 
-
-#my @urls = (
-#    'https://www.google.com',
-#    'http://nosuchsiteexists.com',
-#    'https://nyuroam-guest.nyu.edu/cgi-bin/index.pl',
-#);
-
+#iterate
 #for my $url (@urls) {
 #    my $response = $Client->get($url);
 #    say $url, ": ", $response->{status};
 #}
 
 #URL_status_check();
-
