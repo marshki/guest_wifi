@@ -8,7 +8,7 @@ $ua->timeout(10);
 my $response = $ua->get('https://nyuroam-guest.nyu.edu/cgi-bin/index.pl/');
  
 if ($response->is_success) {
-  print $response->content;  # or whatever
+  print $response->content;
 }
 else {
   die $response->status_line;
