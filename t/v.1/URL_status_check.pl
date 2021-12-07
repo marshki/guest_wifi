@@ -35,13 +35,13 @@ $req->authorization_basic($netid, $password);
 my $response = $ua->request($req);
 
 if ($response->is_success) {
-  print $response->content; 
+  print "I see you fam.\n";
+  # print $response->content; 
 }
 else {
   die $response->status_line;
 };
 
-#iterate
 #for my $url (@urls) {
 #    my $response = $Client->get($url);
 #    say $url, ": ", $response->{status};
