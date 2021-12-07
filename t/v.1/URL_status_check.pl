@@ -15,13 +15,13 @@ use diagnostics;
 use LWP::UserAgent;
 use Mozilla::CA;
 
-our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
+# our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
-#my @urls = (
-#    'https://www.google.com',
-#    'http://nosuchsiteexists.com',
-#    'https://nyuroam-guest.nyu.edu/cgi-bin/index.pl',
-#);
+my @url = (
+    'https://www.google.com',
+    'http://nosuchsiteexists.com',
+    'https://nyuroam-guest.nyu.edu/cgi-bin/index.pl',
+);
 
 my $netid = "";
 my $password = "";
@@ -34,17 +34,24 @@ my $req = new HTTP::Request(GET => $url);
 $req->authorization_basic($netid, $password);
 my $response = $ua->request($req);
 
-if ($response->is_success) {
-  print "I see you fam.\n";
+#if ($response->is_success) {
+#  print "I see you fam.\n";
+#   # print $response->content; 
+#}
+#else {
+#  die $response->status_line;
+#};
+
+for my $url (@urls) {
+
+  if ($response->is_success) {
+    print "I see you fam.\n";
   # print $response->content; 
-}
-else {
-  die $response->status_line;
+  }
+  else {
+    die $response->status_line;
+  };
+
 };
 
-#for my $url (@urls) {
-#    my $response = $Client->get($url);
-#    say $url, ": ", $response->{status};
-#}
-
-#URL_status_check();
+# URL_status_check();
