@@ -4,7 +4,7 @@ sub silent_prompt {
     # Do not show typed chars
     Term::ReadKey::ReadMode('noecho');
 
-    print "Enter your password: ";
+    print "Enter your password: \n";
     my $password = Term::ReadKey::ReadLine(0);
 
     # Reset the terminal
