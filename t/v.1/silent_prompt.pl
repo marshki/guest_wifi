@@ -1,24 +1,34 @@
+#!/usr/bin/perl -w 
+
+use strict;
+use warnings; 
+use diagnostics;
+
+use Term::ReadKey;
+
+=begin password_prompt 
+Prompt user for input. Null string is not valid.
+Returns: string
+=cut
+
 sub silent_prompt {
-    require Term::ReadKey;
 
-    # Do not show typed chars
-    Term::ReadKey::ReadMode('noecho');
+  print "Enter your password: \n";
 
-    print "Enter your password: \n";
-    my $password = Term::ReadKey::ReadLine(0);
+  # Do not show typed chars
+  Term::ReadKey::ReadMode('noecho');
 
-    # Reset the terminal
-    Term::ReadKey::ReadMode('restore');
+  my $password = Term::ReadKey::ReadLine(0);
 
-    # This should print zilch!
-    print "\n";
+  # Reset the terminal
+  Term::ReadKey::ReadMode('restore');
 
-    # get rid of line ending (works on Windows, too!)
-    $password =~ s/\R\z//;
+  # get rid of line ending (works on Windows, too!)
+  $password =~ s/\R\z//;
 
-    # say "Password was <$password>"; # check what you are doing :)
+  #say "Password was <$password>"; # check what you are doing :)
 
-    return $password;
+  return $password;
 }
 
 silent_prompt;
