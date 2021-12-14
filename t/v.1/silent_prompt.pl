@@ -23,10 +23,8 @@ sub silent_prompt {
   # Reset the terminal
   Term::ReadKey::ReadMode('restore');
 
-  # get rid of line ending (works on Windows, too!)
+  # Get rid of line ending (works on Windows, too!)
   $password =~ s/\R\z//;
-
-  #say "Password was <$password>"; # check what you are doing :)
 
   return $password;
 }
