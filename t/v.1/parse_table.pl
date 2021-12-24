@@ -22,6 +22,8 @@ my $req = new HTTP::Request(GET => $url);
 
 our $HTML;
 
+my $first;
+
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
 =cut
@@ -34,7 +36,7 @@ sub scrape_HTML {
 }
 
 scrape_HTML();
-print $HTML->as_string();
+#print $HTML->as_string();
 
 # ok( @HTML eq @HTML );
 
@@ -43,12 +45,13 @@ sub parse_table {
 
   # return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML) [0];
 
+  return $first = (split qr{</?td>}, @HTML)[6];
 }
 
 sub main() {
   scrape_HTML();
-  #parse_table();
-  #print $parse_HTML;
+  parse_table();
+  print $first;
 }
 
 &main();
