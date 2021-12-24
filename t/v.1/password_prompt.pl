@@ -6,8 +6,9 @@ use strict;
 use warnings; 
 use diagnostics;
 
-use Term::ReadKey;
 use Test::Simple tests => 1;
+
+use Term::ReadKey;
 
 my $password;
 
