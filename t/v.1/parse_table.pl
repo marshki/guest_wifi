@@ -22,7 +22,7 @@ my $req = new HTTP::Request(GET => $url);
 
 our $HTML;
 
-my $first;
+our $first;
 
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
@@ -44,8 +44,8 @@ sub parse_table {
   print "Parsing region of interest (ROI) from HTML... \n";
 
   # return $parse_HTML = (grep { /table.*Guest.*Password/ } @HTML) [0];
-
-  return $first = (split qr{</?td>}, @HTML)[6];
+  # Perl wants you to use an HTML parser, not Perl, to extract stuff.
+  return $first = (split qr{</?td>}, @HTML) [6];
 }
 
 sub main() {
