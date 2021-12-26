@@ -3,7 +3,7 @@
 # Template for web scraping using LWP::UserAgent
 # For reference: 
 # https://metacpan.org/pod/LWP::UserAgent
-# Needed in some environments for SSL certs
+# Needed in some environments for SSL certs:
 # https://metacpan.org/pod/Mozilla::CA
 
 use v5.30;
