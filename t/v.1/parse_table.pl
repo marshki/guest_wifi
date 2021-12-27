@@ -34,21 +34,21 @@ sub scrape_HTML {
 }
 
 scrape_HTML();
-#print $HTML->as_string();
+print $HTML->as_string();
 
 # ok( @HTML eq @HTML );
 
-sub parse_table {
-  print "Parsing region of interest (ROI) from HTML... \n";
+#sub parse_table {
+  #print "Parsing region of interest (ROI) from HTML... \n";
 
   # Perl wants you to use an HTML parser, not Perl, but here's an attempt: 
-  return $parse_HTML =~ s/^<td>// @HTML;
-}
+  #return $parse_HTML =~ s/^<td>// @HTML;
+  #}
 
 sub main() {
-  scrape_HTML();
-  parse_table();
-  print $parse_HTML;
+  #scrape_HTML();
+  #parse_table();
+  #print $parse_HTML;
 }
 
 &main();
