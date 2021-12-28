@@ -6,8 +6,10 @@ use warnings;
 use diagnostics;
 
 #use Test::Simple tests => 1;
+
 use LWP::UserAgent;
 use Mozilla::CA;
+use HTML::TableExtract;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
@@ -21,6 +23,18 @@ my $ua = LWP::UserAgent->new();
 my $req = new HTTP::Request(GET => $url);
 
 our $HTML;
+
+#my $headers = ['Guest ID', 'Password'];
+
+#my $table_extract = HTML::TableExtract->new(headers => $headers);
+
+#$table_extract->parse_file('sample.html');
+#my ($table) = $table_extract->tables;
+
+#for my $row ($table->rows) {
+#    print join(",", @$row), "\n";
+#
+
 
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
@@ -42,7 +56,6 @@ sub parse_table {
   print "Parsing region of interest (ROI) from HTML... \n";
 
   # Perl wants you to use an HTML parser, not Perl, but here's an attempt: 
-  return $parse_HTML =~ s/^<td>// ;
 }
 
 sub main() {
