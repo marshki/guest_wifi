@@ -1,5 +1,7 @@
 #!/usr/bin perl -w
 
+# For reference: https://metacpan.org/pod/HTML::TableExtract
+
 use strict;
 use warnings;
 use HTML::TableExtract;
@@ -11,6 +13,9 @@ my $table_extract = HTML::TableExtract->new(headers => $headers);
 $table_extract->parse_file('sample.html');
 my ($table) = $table_extract->tables;
 
+
 for my $row ($table->rows) {
-    print join(",", @$row), "\n";
+    print 'Guest ID ', 'Password', "\n";
+    print '-------- ', '--------', "\n";
+    print join(" ", @$row), "\n";
 }
