@@ -4,6 +4,8 @@
 
 use strict;
 use warnings;
+use diagnostics;
+
 use HTML::TableExtract;
 
 my $headers = ['Guest ID', 'Password'];
@@ -15,7 +17,7 @@ my ($table) = $table_extract->tables;
 
 
 for my $row ($table->rows) {
-    print 'Guest ID ', 'Password', "\n";
-    print '-------- ', '--------', "\n";
+    print 'Guest ID',' ','Password', "\n";
+    print '--------',' ','--------', "\n";
     print join(" ", @$row), "\n";
 }
