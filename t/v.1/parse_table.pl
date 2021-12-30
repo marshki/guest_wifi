@@ -15,22 +15,11 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid = "";
 my $password = "";
-
-#my @HTML;
-our $parse_HTML;
      
 my $ua = LWP::UserAgent->new();
 my $req = new HTTP::Request(GET => $url);
-use HTML::TableExtract;
 
 our $HTML;
-
-#
-#$table_extract->parse_file('sample.html');
-#my ($table) = $table_extract->tables;
-#for my $row ($table->rows) {
-#    print join(",", @$row), "\n";
-#
 
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
@@ -44,42 +33,32 @@ sub scrape_HTML {
 }
 
 scrape_HTML();
-$HTML->as_string();
+
+#$HTML->as_string();
 #print $HTML->as_string();
 
-# ok( @HTML eq @HTML );
 my $headers = ['Guest ID', 'Password'];
-
 my $table_extract = HTML::TableExtract->new(headers => $headers);
 
-sub parse_table {
-  print "Parsing region of interest (ROI) from HTML... \n";
+# I think there's a problem here:
 
-  $table_extract->parse($HTML);
-  my ($table) = $table_extract->tables;
+$table_extract->parse($HTML);
 
-  for my $row ($table->rows) {
-      print join(",", @$row), "\n";
-  }
-}
+#Things def. break here:
 
-parse_table();
-
-#sub main() {
-#scrape_HTML();
-  #parse_table();
-  #print $parse_HTML;
-  #}
-
-#my $headers = ['Guest ID', 'Password'];
-#my $table_extract = HTML::TableExtract->new(headers => $headers);
-
-#$table_extract->parse($HTML);
 #my ($table) = $table_extract->tables;
+
 #for my $row ($table->rows) {
 #  print join(",", @$row), "\n";
 #};
 
+###############
+# Placeholders:
+#sub main() {
+#scrape_HTML();
+  #parse_table();
+  #parse_HTML();
+  #}
 #&main();
 
 #ok( @HTML eq @HTML );
