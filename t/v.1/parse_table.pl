@@ -46,7 +46,8 @@ $table_extract->parse($HTML);
 
 #Things def. break here:
 
-#my ($table) = $table_extract->tables;
+print(my ($table) = $table_extract->tables);
+
 
 #for my $row ($table->rows) {
 #  print join(",", @$row), "\n";
@@ -57,7 +58,6 @@ $table_extract->parse($HTML);
 #sub main() {
 #scrape_HTML();
   #parse_table();
-  #parse_HTML();
   #}
 #&main();
 
