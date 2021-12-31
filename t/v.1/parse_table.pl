@@ -1,11 +1,12 @@
 #!/usr/bin/perl -w
+
 use v5.30;
 
 use strict;
 use warnings;
 use diagnostics;
 
-#use Test::Simple tests => 1;
+#use Test::Simple tests => 2;
 
 use LWP::UserAgent;
 use Mozilla::CA;
@@ -15,8 +16,10 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid = "";
 my $password = "";
+my @HTML;
      
 my $ua = LWP::UserAgent->new();
+
 my $req = new HTTP::Request(GET => $url);
 
 our $HTML;
@@ -29,29 +32,24 @@ sub scrape_HTML {
   print "Scraping HTML from NYUROAM page... \n";
 
   $req->authorization_basic($netid, $password);
-  return $HTML = $ua->request($req);
+
+  return $HTML = $ua->request($req)->content();
 }
 
 scrape_HTML();
 
-#$HTML->as_string();
-#print $HTML->as_string();
-
 my $headers = ['Guest ID', 'Password'];
-my $table_extract = HTML::TableExtract->new(headers => $headers);
 
-# I think there's a problem here:
+my $table_extract = HTML::TableExtract->new(headers => $headers);
 
 $table_extract->parse($HTML);
 
-#Things def. break here:
-
-print(my ($table) = $table_extract->tables);
+my ($table) = $table_extract->tables;
 
 
-#for my $row ($table->rows) {
-#  print join(",", @$row), "\n";
-#};
+for my $row ($table->rows) {
+    print join(" ", @$row), "\n";
+}
 
 ###############
 # Placeholders:
@@ -63,3 +61,5 @@ print(my ($table) = $table_extract->tables);
 
 #ok( @HTML eq @HTML );
 #ok( $parse_HTML eq $parse_HTML );
+
+#ok( @HTML eq @HTML );
