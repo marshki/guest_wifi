@@ -31,10 +31,12 @@ sub scrape_HTML {
   print "Scraping HTML from NYUROAM page... \n";
 
   $req->authorization_basic($netid, $password);
-  return $HTML = $ua->request($req);
+
+  return $HTML = $ua->request($req)->content();
+
+  #return $HTML = $ua->request($req);
 }
 
 scrape_HTML();
-print $HTML->as_string();
 
 ok( @HTML eq @HTML );
