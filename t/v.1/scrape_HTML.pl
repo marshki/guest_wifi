@@ -35,6 +35,4 @@ sub scrape_HTML {
   return $HTML = $ua->request($req)->content();
 }
 
-scrape_HTML();
-
 ok( @HTML eq @HTML );
