@@ -18,7 +18,6 @@ my $password = "";
 my @HTML;
      
 my $ua = LWP::UserAgent->new();
-
 my $req = new HTTP::Request(GET => $url);
 
 our $HTML;
