@@ -2,7 +2,8 @@
 
 =begin comments
 Template for extracting table from HTML using HTML::TableExtract
-For reference: https://metacpan.org/pod/HTML::TableExtract
+For reference:
+https://metacpan.org/pod/HTML::TableExtract
 =cut
 
 use strict;
