@@ -27,7 +27,7 @@ while (1) {
   Term::ReadKey::ReadMode('restore');
   
   last if $password ne '';
-  print "No input detected!\n";
+    print "No input detected!\n";
 
   }
   return $password;
