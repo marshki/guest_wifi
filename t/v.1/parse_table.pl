@@ -19,10 +19,11 @@ my $password = "";
 my @HTML;
      
 my $ua = LWP::UserAgent->new();
-
 my $req = new HTTP::Request(GET => $url);
-
 our $HTML;
+
+my $headers = ['Guest ID', 'Password'];
+my $table_extract = HTML::TableExtract->new(headers => $headers);
 
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
@@ -36,30 +37,32 @@ sub scrape_HTML {
   return $HTML = $ua->request($req)->content();
 }
 
-scrape_HTML();
+=begin parse_table
+Extract region of interest (ROI) from HTML.
+=cut
 
-my $headers = ['Guest ID', 'Password'];
+sub parse_table {
+  print "Parsing region of interest (ROI) from HTML... \n";
 
-my $table_extract = HTML::TableExtract->new(headers => $headers);
+  $table_extract->parse($HTML);
+  my ($table) = $table_extract->tables;
+  print $table;
+} 
 
-$table_extract->parse($HTML);
+#sub print_ROI {
+#  for my $row ($table->rows) {
+#    print join(" ", @$row), "\n";
+#  }
+#}
 
-my ($table) = $table_extract->tables;
-
-
-for my $row ($table->rows) {
-    print join(" ", @$row), "\n";
+sub main() {
+  scrape_HTML();
+  parse_table();
+  #print $table;
+  #print_ROI();
 }
 
-###############
-# Placeholders:
-#sub main() {
-#scrape_HTML();
-  #parse_table();
-  #}
-#&main();
+&main();
 
 #ok( @HTML eq @HTML );
 #ok( $parse_HTML eq $parse_HTML );
-
-#ok( @HTML eq @HTML );
