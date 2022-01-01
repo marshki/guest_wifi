@@ -33,8 +33,6 @@ sub scrape_HTML {
   $req->authorization_basic($netid, $password);
 
   return $HTML = $ua->request($req)->content();
-
-  #return $HTML = $ua->request($req);
 }
 
 scrape_HTML();
