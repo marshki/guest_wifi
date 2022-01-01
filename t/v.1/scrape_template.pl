@@ -2,7 +2,8 @@
 
 =begin comments
 Template for web scraping using LWP::UserAgent
-For reference: https://metacpan.org/pod/LWP::UserAgent
+For reference: 
+https://metacpan.org/pod/LWP::UserAgent
 Some environments require Mozilla's CA cert bundle 
 For reference:
 https://metacpan.org/pod/Mozilla::CA
