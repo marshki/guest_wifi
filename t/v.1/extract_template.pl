@@ -6,6 +6,8 @@ For reference:
 https://metacpan.org/pod/HTML::TableExtract
 =cut
 
+use v5.30;
+
 use strict;
 use warnings;
 use diagnostics;
