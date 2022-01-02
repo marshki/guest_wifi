@@ -1,4 +1,7 @@
 #!/usr/bin/perl -w
+
+use v5.30;
+
 use strict;
 use warnings;
 use diagnostics;
