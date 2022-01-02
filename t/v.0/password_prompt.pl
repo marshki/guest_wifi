@@ -1,4 +1,7 @@
 #!/usr/bin/perl -w
+
+use v5.30;
+
 use strict;
 use warnings;
 use diagnostics;
@@ -13,7 +16,7 @@ Prompt user for input. Null string is not valid.
 Returns: string
 =cut
 
-sub password_prompt { 
+sub password_prompt {
 
   while (1) {
     print "Enter your password: \n";
@@ -25,7 +28,7 @@ sub password_prompt {
     last if $password ne '';
     print "No input detected!\n";
 
-  } 
+  }
   return $password;
 }
 
