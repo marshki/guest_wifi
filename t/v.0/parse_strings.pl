@@ -1,10 +1,12 @@
 #!/usr/bin/perl -w
 
+use v5.30;
+
 use strict;
 use warnings;
 use diagnostics;
 
-use Test::Simple tests => 2;
+use Test::Simple tests => 4;
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
@@ -37,7 +39,6 @@ sub parse_table {
 
 }
 
-
 =begin parse_guest_username/password
 Extract region of interest (username, password) from parse_HTML.
 =cut
@@ -61,13 +62,11 @@ sub main() {
   parse_table(); 
   parse_guest_username();
   parse_guest_password();
-  print "Guest username: $guest_username \n" ; 
-  print "Guest password: $guest_password \n" ; 
 }
 
 &main();
 
 ok( @HTML eq @HTML );
 ok( $parse_HTML eq $parse_HTML );
-
-
+ok( $guest_username eq $guest_username );
+ok( $guest_password eq $guest_password );
