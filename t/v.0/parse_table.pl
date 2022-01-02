@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+use v5.30;
+
 use strict;
 use warnings;
 use diagnostics;
@@ -37,7 +39,6 @@ sub parse_table {
 sub main() {
   scrape_HTML();
   parse_table();
-  print $parse_HTML;
 }
 
 &main();
