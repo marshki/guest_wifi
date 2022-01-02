@@ -2,9 +2,9 @@
 
 use v5.30;
 
-#use strict;
-#use warnings;
-#use diagnostics;
+use strict;
+use warnings;
+use diagnostics;
 
 #use Test::Simple tests => 2;
 
@@ -48,14 +48,18 @@ sub parse_table {
   my ($table) = $table_extract->tables;
 
   for my $row ($table->rows) {
-    print my $creds = join(" ", @$row);
+    my $creds = join(" ", @$row);
   } 
 
 }
 
+sub print_ROI {
+  print @creds; 
+} 
 sub main() {
   scrape_HTML();
   parse_table();
+  print_ROI():
 }
 
 &main();
