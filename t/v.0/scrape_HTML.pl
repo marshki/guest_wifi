@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+use v5.30;
+
 use strict;
 use warnings;
 use diagnostics;
@@ -24,6 +26,5 @@ sub scrape_HTML {
 }
 
 scrape_HTML();
-print "@HTML";
 
 ok( @HTML eq @HTML );
