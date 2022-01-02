@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use diagnostics;
 
-#use Test::Simple tests => 2;
+use Test::Simple tests => 2;
 
 use LWP::UserAgent;
 use Mozilla::CA;
@@ -46,23 +46,18 @@ sub parse_table {
 
   $table_extract->parse($HTML);
   my ($table) = $table_extract->tables;
-  print $table;
-} 
 
-#sub print_ROI {
-#  for my $row ($table->rows) {
-#    print join(" ", @$row), "\n";
-#  }
-#}
+  for my $row ($table->rows) {
+    print join(" ", @$row), "\n";
+  }
+}
 
 sub main() {
   scrape_HTML();
   parse_table();
-  #print $table;
-  #print_ROI();
 }
 
 &main();
 
-#ok( @HTML eq @HTML );
-#ok( $parse_HTML eq $parse_HTML );
+ok( @HTML eq @HTML );
+ok( @row eq @row);
