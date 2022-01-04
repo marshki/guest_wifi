@@ -49,17 +49,19 @@ sub parse_table {
 
   for my $row ($table->rows) {
     my $creds = join(" ", @$row);
+  return $creds;
+  #print $creds, "\n";
   } 
-
 }
 
 sub print_ROI {
-  print @creds; 
+  print $creds, "\n"; 
 } 
+
 sub main() {
   scrape_HTML();
   parse_table();
-  print_ROI():
+  print_ROI();
 }
 
 &main();
