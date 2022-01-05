@@ -12,8 +12,7 @@ my $netid = "";
 my $password = "";
 
 =begin url_check
-Return HTTP response code from web server.
-Exit if code not 200.
+Exit if HTTP response code not 200.
 =cut
 
 sub url_check {
