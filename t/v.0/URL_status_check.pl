@@ -13,14 +13,14 @@ my $password = "";
 
 =begin url_check
 Return HTTP response code from web server.
-Exit if not 200.
+Exit if code not 200.
 =cut
 
 sub url_check {
 
   print "Checking URL status code...\n";
 
-  my $status_code = 
+  my $status_code =
 (`curl --max-time 2.5 --user ${netid}:${password} --output /dev/null --silent --head --write-out '%{http_code}\n' $url`);
 
   if ($status_code != '200'){{
