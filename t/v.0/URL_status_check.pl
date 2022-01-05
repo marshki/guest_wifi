@@ -22,12 +22,14 @@ sub url_check {
   my $status_code =
 (`curl --max-time 2.5 --user ${netid}:${password} --output /dev/null --silent --head --write-out '%{http_code}\n' $url`);
 
-  if ($status_code != '200'){{
-    print "URL not accessible. Exiting. \n";
-    last;
-  }}else{
-    print "URL accessible. Continuing... \n";
-  }
+  if ($status_code != '200'){
+    {
+      print "URL not accessible. Exiting. \n";
+      exit;
+    }
+  } else {
+      print "URL accessible. Continuing... \n";
+    }
 }
 
 url_check
