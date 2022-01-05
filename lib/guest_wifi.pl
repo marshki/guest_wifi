@@ -53,12 +53,14 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 =cut
 
 our $date_today = `date`;
+
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid;
 my $password;
 
 my @HTML;
+
 our $parse_HTML;
 our $guest_username;
 our $guest_password;
@@ -106,12 +108,14 @@ sub url_check {
   my $status_code =
 (`curl --max-time 2.5 --user ${netid}:${password} --output /dev/null --silent --head --write-out '%{http_code}\n' $url`);
 
-  if ($status_code != '200'){{
-    print "URL not accessible. Exiting. \n";
-    exit $status_code;
-  }}else{
-    print "URL accessible. Continuing... \n";
-  }
+  if ($status_code != '200'){
+    {
+      print "URL not accessible. Exiting. \n";
+      exit $status_code;
+    }
+  } else {
+      print "URL accessible. Continuing... \n";
+    }
 }
 
 # Pass credentials to curl, and assign page to "@HTML".
