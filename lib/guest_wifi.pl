@@ -9,22 +9,22 @@ use diagnostics;
 =pod
 =head1 DESCRIPTION
 
-Extract weekly "nyuguest" WiFi credentials. 
+Extract weekly "nyuguest" WiFi credentials.
 
 =head2 NAME
 
-get_guest_wifi.pl
+guest_wifi.pl
 
 =head2 SYNOPSIS
 
-Extract weekly "nyuguest" WiFi credentials using Perl. 
+Extract weekly "nyuguest" WiFi credentials using Perl.
 Requires access to NYU-NET--campus wide-area network (WAN)--and a valid NetID.
 Credentials are valid for one(1) week from 12:00:01 EST Monday.
 
-Sample output: 
+Sample output:
 
-Guest Username Guest Password
-guest160       ataichme
+Guest username: guest160
+Guest password: giddilot
 
 #### AUTHOR
 
@@ -36,18 +36,18 @@ guest160       ataichme
 
 Copyright <2021> <M. Krinitz>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of 
-this software and associated documentation files (the "Software"), to deal in 
-the Software without restriction, including without limitation the rights to use, 
-copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
 and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all copies 
+The above copyright notice and this permission notice shall be included in all copies
 or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 =cut
@@ -57,6 +57,7 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid;
 my $password;
+
 my @HTML;
 our $parse_HTML;
 our $guest_username;
@@ -73,14 +74,14 @@ sub netid_prompt {
               
     last if $netid ne '';
     print "No input detected!\n";
-    
+ 
   }
   return $netid;
 }
 
 # Pasword prompt (UNIX only!).
 
-sub password_prompt { 
+sub password_prompt {
 
   while (1) {
     print "Enter your password: \n";
@@ -92,8 +93,25 @@ sub password_prompt {
     last if $password ne '';
     print "No input detected!\n";
 
-  } 
+  }
   return $password;
+}
+
+# Check HTTP response code.
+
+sub url_check {
+
+  print "Checking URL status code...\n";
+
+  my $status_code =
+(`curl --max-time 2.5 --user ${netid}:${password} --output /dev/null --silent --head --write-out '%{http_code}\n' $url`);
+
+  if ($status_code != '200'){{
+    print "URL not accessible. Exiting. \n";
+    exit $status_code;
+  }}else{
+    print "URL accessible. Continuing... \n";
+  }
 }
 
 # Pass credentials to curl, and assign page to "@HTML".
@@ -134,6 +152,7 @@ sub main() {
 
   netid_prompt();
   password_prompt();
+  url_check();
   scrape_HTML();
   parse_table();
   parse_username();
