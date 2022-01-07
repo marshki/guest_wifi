@@ -49,13 +49,13 @@ sub parse_table {
 
   for my $row ($table->rows) {
     my $creds = join(" ", @$row);
-  return $creds;
-  #print $creds, "\n";
+  print $creds, "\n";
+  #return $creds;
   } 
 }
 
 sub print_ROI {
-  print $creds, "\n"; 
+  print "Placholder..."	#print $creds, "\n"; 
 } 
 
 sub main() {
