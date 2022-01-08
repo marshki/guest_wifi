@@ -22,6 +22,8 @@ my $ua = LWP::UserAgent->new();
 my $req = new HTTP::Request(GET => $url);
 our $HTML;
 
+our $credentials;
+
 my $headers = ['Guest ID', 'Password'];
 my $table_extract = HTML::TableExtract->new(headers => $headers);
 
@@ -38,7 +40,7 @@ sub scrape_HTML {
 }
 
 =begin parse_table
-Extract region of interest (ROI) from HTML.
+Extract, then return region of interest (ROI) from HTML.
 =cut
 
 sub parse_table {
@@ -48,20 +50,20 @@ sub parse_table {
   my ($table) = $table_extract->tables;
 
   for my $row ($table->rows) {
-    my $creds = join(" ", @$row);
-  print $creds, "\n";
-  #return $creds;
+    return our $credentials = join(" ", @$row);
   } 
 }
 
-sub print_ROI {
-  print "Placholder..."	#print $creds, "\n"; 
-} 
+sub print_credentials {
+  print 'Guest ID',' ','Password', "\n";
+  print '--------',' ','--------', "\n";
+  print $credentials, "\n";
+}
 
 sub main() {
   scrape_HTML();
   parse_table();
-  print_ROI();
+  print_credentials();
 }
 
 &main();
