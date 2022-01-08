@@ -12,7 +12,7 @@ our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid = "";
 my $password = "";
-my @HTML; 
+my $HTML; 
 
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
@@ -21,10 +21,10 @@ Scrape, then return parsed table to "HTML".
 sub scrape_HTML {
   print "Scraping HTML from NYUROAM page... \n";
 
-  return @HTML = (`curl --user ${netid}:${password} $url`);
+  return $HTML = (`curl --user ${netid}:${password} $url`);
 
 }
 
 scrape_HTML();
 
-ok( @HTML eq @HTML );
+ok( $HTML eq $HTML );
