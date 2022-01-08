@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use diagnostics;
 
-use Test::Simple tests => 2;
+#use Test::Simple tests => 2;
 
 use LWP::UserAgent;
 use Mozilla::CA;
@@ -25,6 +25,8 @@ our $HTML;
 my $headers = ['Guest ID', 'Password'];
 my $table_extract = HTML::TableExtract->new(headers => $headers);
 
+our $credentials;
+
 =begin scrape_HTML
 Scrape, then return parsed table to "HTML".
 =cut
@@ -38,7 +40,7 @@ sub scrape_HTML {
 }
 
 =begin parse_table
-Extract region of interest (ROI) from HTML.
+Extract, then return region of interest (ROI) from HTML.
 =cut
 
 sub parse_table {
@@ -48,8 +50,8 @@ sub parse_table {
   my ($table) = $table_extract->tables;
 
   for my $row ($table->rows) {
-    print join(" ", @$row), "\n";
-  }
+    return our $credentials = join(" ", @$row);
+  } 
 }
 
 sub main() {
@@ -59,5 +61,5 @@ sub main() {
 
 &main();
 
-ok( @HTML eq @HTML );
-ok( @row eq @row);
+#ok( @HTML eq @HTML );
+#ok( @$row eq @$row);
