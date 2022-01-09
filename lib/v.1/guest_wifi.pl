@@ -11,15 +11,15 @@ use LWP::UserAgent;
 use Mozilla::CA;
 use HTML::TableExtract;
 
-our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
-
 my $netid;
 my $password;
-my @HTML;
-     
+
+our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
+
 my $ua = LWP::UserAgent->new();
 my $req = new HTTP::Request(GET => $url);
 
+my @HTML;
 our $HTML;
 
 my $headers = ['Guest ID', 'Password'];
