@@ -144,6 +144,8 @@ sub print_credentials {
   print $credentials, "\n";
 }
 
+# main
+
 sub main() {
   print "Current time: $date_today";
       
