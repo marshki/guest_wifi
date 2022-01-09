@@ -13,7 +13,7 @@ Extract weekly "nyuguest" WiFi credentials.
 
 =head2 NAME
 
-guest_wifi.pl
+guest_wifi.pl v.0
 
 =head2 SYNOPSIS
 
@@ -23,8 +23,18 @@ Credentials are valid for one(1) week from 12:00:01 EST Monday.
 
 Sample output:
 
-Guest username: guest160
-Guest password: giddilot
+Current time: Sun 09 Jan 2022 04:59:55 PM EST
+Enter your NetID: lilcuckoo0211 
+Enter your password: 
+Checking URL status code...
+URL accessible. Continuing... 
+Retrieving HTML from NYUROAM page... 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  4173    0  4173    0     0  17909      0 --:--:-- --:--:-- --:--:-- 17987
+Parsing region of interest (ROI) from HTML... 
+Guest username: guest160 
+Guest password: giddilot 
 
 #### AUTHOR
 
