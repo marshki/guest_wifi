@@ -13,7 +13,7 @@ Extract weekly "nyuguest" WiFi credentials.
 
 =head2 NAME
 
-guest_wifi.pl
+guest_wifi.pl v.1
 
 =head2 SYNOPSIS
 
