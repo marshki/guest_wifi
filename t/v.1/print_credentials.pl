@@ -1,4 +1,7 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
+
+use warnings;
+use diagnostics;
 
 =begin scrape_HTML
 Formatted print statement.
