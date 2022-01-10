@@ -1,4 +1,4 @@
-#!/usr/bin/env perl -w 
+#!/usr/bin/perl  
 
 =begin comments
 Template for web scraping using LWP::UserAgent
@@ -11,7 +11,6 @@ https://metacpan.org/pod/Mozilla::CA
 
 use v5.30;
 
-use strict;
 use warnings;
 use diagnostics;
 

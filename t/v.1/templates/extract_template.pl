@@ -1,4 +1,4 @@
-#!/usr/bin perl -w
+#!/usr/bin perl
 
 =begin comments
 Template for extracting table from HTML using HTML::TableExtract
@@ -8,7 +8,6 @@ https://metacpan.org/pod/HTML::TableExtract
 
 use v5.30;
 
-use strict;
 use warnings;
 use diagnostics;
 
