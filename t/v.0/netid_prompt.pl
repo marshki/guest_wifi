@@ -1,14 +1,13 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
 use v5.30;
 
-use strict;
 use warnings;
 use diagnostics;
 
 use Test::Simple tests => 1;
 
-my $netid;
+#my $netid;
 
 =begin netid_prompt
 Prompt user for input. Null string is not valid.
