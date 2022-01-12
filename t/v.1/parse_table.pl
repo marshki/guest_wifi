@@ -5,7 +5,7 @@ use v5.30;
 use warnings;
 use diagnostics;
 
-#use Test::Simple tests => 2;
+use Test::Simple tests => 1;
 
 use LWP::UserAgent;
 use Mozilla::CA;
@@ -60,5 +60,4 @@ sub main() {
 
 &main();
 
-#ok( @HTML eq @HTML );
-#ok( @$row eq @$row);
+ok( $credentials eq $credentials);
