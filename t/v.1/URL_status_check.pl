@@ -25,14 +25,16 @@ my $req = new HTTP::Request(GET => $url);
 $req->authorization_basic($netid, $password);
 my $response = $ua->request($req);
 
+# for reference: 
+# https://metacpan.org/pod/LWP::UserAgent
 
 if ($response->is_success) {
-  #print "I see you fam.\n";
-  print $response->content; 
-  #print $response->status_line;
-}
+  print "I see you fam.\n";
+  #print $response->content; 
+  }
 else {
   die $response->status_line;
+  #print $response->status_line;
 };
 
 # This test works on the LAN, but not off it. For example:
