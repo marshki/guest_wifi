@@ -20,6 +20,8 @@ Check HTTP response code.
 my $ua = LWP::UserAgent->new();
 $ua->timeout(10);
 
+#https://metacpan.org/pod/HTTP::Response
+
 my $req = new HTTP::Request(GET => $url);
 
 $req->authorization_basic($netid, $password);
