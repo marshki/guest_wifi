@@ -5,42 +5,12 @@ use v5.30;
 use warnings;
 use diagnostics;
 
-use LWP::UserAgent;
-use Mozilla::CA;
+#use LWP::UserAgent;
+#use Mozilla::CA;
 
-our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
+use LWP::Simple;
 
-my $netid = "";
-my $password = "";
-
-=begin URL_status_check
-Check HTTP response code.
-=cut
-     
-my $ua = LWP::UserAgent->new();
-$ua->timeout(10);
-
-#https://metacpan.org/pod/HTTP::Response
-
-my $req = new HTTP::Request(GET => $url);
-
-$req->authorization_basic($netid, $password);
-my $response = $ua->request($req);
-
-# for reference: 
-# https://metacpan.org/pod/LWP::UserAgent
-
-if ($response->is_success) {
-  print "I see you fam.\n";
-  #print $response->content; 
-  }
-else {
-  die $response->status_line;
-  #print $response->status_line;
-};
-
-# This test works on the LAN, but not off it. For example:
-# Uncaught exception from user code:
-# 500 Can't connect to nyuroam-guest.nyu.edu:443 (Connection timed out) at URL_status_check.pl 
-
-#URL_status_check();
+my $url="https://nyuroam-guest.nyu.edu";
+if (! head($url)) {
+  die "The Server is DOWN!!!!" 
+}
