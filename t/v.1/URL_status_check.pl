@@ -5,12 +5,25 @@ use v5.30;
 use warnings;
 use diagnostics;
 
-#use LWP::UserAgent;
-#use Mozilla::CA;
-
 use LWP::Simple;
 
-my $url="https://nyuroam-guest.nyu.edu";
-if (! head($url)) {
-  die "The Server is DOWN!!!!" 
+our $url="https://nyuroam-guest.nyu.edu";
+
+=begin URL_status_check
+Check if URL's response header is available.
+Exit if not.
+=cut
+
+
+sub URL_status_check {
+
+  if (! head($url)) {
+    die "$url NOT reachable!!!"; 
+  }
 }
+
+URL_status_check;
+
+#if (! head($url)) {
+#  die "$url NOT reachable!!!" 
+#}
