@@ -6,4 +6,4 @@ our $url="https://nyuroam-guest.nyu.edu";
 
 $ua->timeout(5);	
 
-my $html = get $url || die "Request timed out!\n";
+my $html = get $url || die "Request timed out!\n" ;
