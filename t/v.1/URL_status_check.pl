@@ -17,10 +17,10 @@ Exit if URL's response header is not available.
 
 sub URL_status_check {
   
-  print "This may take a while...";
+  print "This may take a while...\n";
 
   if (! head($url)) {
-    die "$url NOT reachable!!!";
+    die "$url NOT reachable!!!\n";
   }
 }
 
