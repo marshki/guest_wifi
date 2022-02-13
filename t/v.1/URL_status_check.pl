@@ -16,9 +16,11 @@ Exit if URL's response header is not available.
 =cut
 
 sub URL_status_check {
+  
+  print "This may take a while..."
 
   if (! head($url)) {
-    die "$url NOT reachable!!!"; 
+    die "$url NOT reachable!!!";
   }
 }
 
