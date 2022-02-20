@@ -61,6 +61,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 
 our $date_today = `date`;
 
+use LWP::Simple qw($ua get);
+$ua->timeout(5);
+
 use Term::ReadKey;
 use LWP::UserAgent;
 use Mozilla::CA;
@@ -81,6 +84,13 @@ my $headers = ['Guest ID', 'Password'];
 my $table_extract = HTML::TableExtract->new(headers => $headers);
 
 our $credentials;
+
+# URL_status_check
+
+sub URL_status_check {
+  disable diagnostics;
+  my $html = get $url || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
+}
 
 # netid_prompt
 
@@ -149,7 +159,8 @@ sub print_credentials {
 
 sub main() {
   print "Current time: $date_today";
-      
+
+  URL_status_check();
   netid_prompt();
   password_prompt();
   scrape_HTML();
