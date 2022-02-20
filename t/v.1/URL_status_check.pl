@@ -15,4 +15,3 @@ Die if URL is not retrievable.
 =cut
 
 my $html = get $url || die "Request timed out!\n";
-
