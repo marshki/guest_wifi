@@ -59,8 +59,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 
 =cut
 
-our $date_today = `date`;
-
 use LWP::Simple qw($ua get);
 $ua->timeout(5);
 
@@ -69,13 +67,16 @@ use LWP::UserAgent;
 use Mozilla::CA;
 use HTML::TableExtract;
 
+our $date_today = `date`;
+
+our $url_0 = "https://nyuroam-guest.nyu.edu";
+our $url_1 = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
+
 my $netid;
 my $password;
 
-our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
-
 my $ua = LWP::UserAgent->new();
-my $req = new HTTP::Request(GET => $url);
+my $req = new HTTP::Request(GET => $url_1);
 
 my @HTML;
 our $HTML;
@@ -89,7 +90,7 @@ our $credentials;
 
 sub URL_status_check {
   disable diagnostics;
-  my $html = get $url || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
+  my $html = get $url_0 || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
 }
 
 # netid_prompt
