@@ -11,7 +11,12 @@ $ua->timeout(5);
 our $url="https://nyuroam-guest.nyu.edu";
 
 =begin URL_status_check
-Die if URL is not retrievable.
+Die if URL is not reachable.
 =cut
 
-my $html = get $url || die "Request timed out!\n";
+sub URL_status_check {
+  disable diagnostics;
+  my $html = get $url || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
+}
+
+URL_status_check
