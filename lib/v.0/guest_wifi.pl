@@ -15,7 +15,6 @@ Extract weekly "nyuguest" WiFi credentials.
 guest_wifi.pl v.0
 
 =head2 SYNOPSIS
-
 Extract weekly "nyuguest" WiFi credentials using Perl.
 Requires access to NYU-NET--campus wide-area network (WAN)--and a valid NetID.
 Credentials are valid for one(1) week from 12:00:01 EST Monday.
@@ -58,7 +57,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
 DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 =cut
 
 our $date_today = `date`;
