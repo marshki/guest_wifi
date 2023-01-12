@@ -21,9 +21,9 @@ Sample output:
     Scraping HTML from NYUROAM page... 
     Parsing region of interest (ROI) from HTML... 
 
-|Guest Username |Password       | 
-|-------------- |-------------- |
-|guest160       |ataichme       |
+    |Guest Username |Password       | 
+    |-------------- |-------------- |
+    |guest160       |ataichme       |
 
 #### AUTHOR
 
