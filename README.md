@@ -16,7 +16,7 @@ Credentials are valid for one (1) week from 12:00:01 Eastern Standard Time (EST)
 Sample output:
 
     Current time: Thu Jan 12 15:50:27 EST 2023
-    Enter your NetID: 
+    Enter your NetID: 1lild 
     Enter your password: 
     Scraping HTML from NYUROAM page... 
     Parsing region of interest (ROI) from HTML... 
