@@ -24,8 +24,8 @@ Sample output:
 
 Current time: Sun 09 Jan 2022 04:39:20 PM EST
 Enter your NetID: lilcuckoo0211
-Enter your password: 
-Scraping HTML from NYUROAM page... 
+Enter your password:
+Scraping HTML from NYUROAM page...
 Parsing region of interest (ROI) from HTML...
 Guest ID Password
 -------- --------
