@@ -2,7 +2,7 @@
 
 *Unit Tests*
 
-`v.0` while written in Perl, invokes several `*NIX` utilities, 
+`v.0` while written in Perl, invokes several `*NIX` utilities,
 and are **not** cross-platform compatible.
 
 ### README
