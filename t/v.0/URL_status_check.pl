@@ -12,7 +12,7 @@ my $password = "";
 
 =begin url_check
 Exit if HTTP response code not 200.
-NOTE: Escape (backslash) characters such as '@', e.g. '\@' when using curl.
+NOTE: Escape (backslash) speacial characters in input when using curl, e.g.: '\@'.
 =cut
 
 sub url_check {
