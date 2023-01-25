@@ -12,8 +12,8 @@ my $password = "";
 
 =begin url_check
 Exit if HTTP response code not 200.
-NOTE: CURL may require escaping special characters on input.
-To do this preface the character  with a backslash, e.g.: \@
+NOTE: CURL may require escaping special characters.
+To escape a special character, preface the character with a backslash, e.g.: \@
 =cut
 
 sub url_check {
