@@ -1,3 +1,5 @@
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/73f9db3b3cde41b49bd9ac576c1ed66d)](https://www.codacy.com/gh/marshki/guest_wifi/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=marshki/guest_wifi&amp;utm_campaign=Badge_Grade)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 ![Perl](https://img.shields.io/badge/perl-%2339457E.svg?style=for-the-badge&logo=perl&logoColor=white)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
