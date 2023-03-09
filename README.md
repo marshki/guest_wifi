@@ -15,7 +15,7 @@ Extract weekly "[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a
 
 Credentials are valid for one (1) week from 12:00:01 Eastern Standard Time (EST) Monday.
 
-Sample output:
+### SAMPLE OUTPUT
 
     Current time: Thu Jan 12 15:50:27 EST 2023
     Enter your NetID: lilcuckoo0211 
@@ -41,7 +41,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#### Note
+#### NOTES
 
 NYU will be sunsetting the guest WiFi credentials mechanism as described [here](https://www.nyu.edu/life/information-technology/about-nyu-it/nyu-it-news/the-download/the-download-features/nyuguest-wifi-portal.html). The replacement portal allows users with a valid NetID to self-generate credentials [here](https://guestwifi.nyu.edu/).
-
