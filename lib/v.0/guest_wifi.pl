@@ -19,7 +19,7 @@ Extract weekly "nyuguest" WiFi credentials using Perl.
 Requires access to NYU-NET--campus wide-area network (WAN)--and a valid NetID.
 Credentials are valid for one(1) week from 12:00:01 EST Monday.
 
-Sample output:
+=head2 SAMPLE OUTPUT
 
 Current time: Sun 09 Jan 2022 04:59:55 PM EST
 Enter your NetID: lilcuckoo0211 
