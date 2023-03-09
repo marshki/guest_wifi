@@ -14,7 +14,7 @@ Extract weekly "[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a
 
 Credentials are valid for one (1) week from 12:00:01 Eastern Standard Time (EST) Monday.
 
-### SAMPLE OUTPUT
+#### SAMPLE OUTPUT
 
     Current time: Thu Jan 12 15:50:27 EST 2023
     Enter your NetID: lilcuckoo0211 
