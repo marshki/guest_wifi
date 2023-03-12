@@ -16,15 +16,19 @@ Credentials are valid for one (1) week from 12:00:01 Eastern Standard Time (EST)
 
 #### SAMPLE OUTPUT
 
-    Current time: Thu Jan 12 15:50:27 EST 2023
-    Enter your NetID: lilcuckoo0211 
-    Enter your password: 
-    Scraping HTML from NYUROAM page... 
-    Parsing region of interest (ROI) from HTML... 
+> Current time: Sun Mar 12 10:22:32 EDT 2023
+> Request timed out. Are you connected to NYU-NET? Exiting.
 
-    |Guest Username |Password       | 
-    |-------------- |-------------- |
-    |guest160       |ataichme       |
+
+>Current time: Thu Jan 12 15:50:27 EST 2023
+>Enter your NetID: lilcuckoo0211 
+>Enter your password: 
+>Scraping HTML from NYUROAM page... 
+>Parsing region of interest (ROI) from HTML... 
+
+>|Guest Username |Password       | 
+>|-------------- |-------------- |
+>|guest160       |ataichme       |
 
 #### AUTHOR
 
