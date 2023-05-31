@@ -59,7 +59,7 @@ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =cut
 
-our $date_today = `date`;
+our $date_today = localtime();
 
 our $url = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
@@ -159,7 +159,7 @@ sub parse_password {
 
 sub main() {
 
-  print "Current time: $date_today";
+  print "Current time: $date_today\n";
 
   netid_prompt();
   password_prompt();
