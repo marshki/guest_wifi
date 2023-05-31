@@ -66,7 +66,7 @@ use LWP::UserAgent;
 use Mozilla::CA;
 use HTML::TableExtract;
 
-our $date_today = `date`;
+our $date_today = localtime();
 
 our $url_0 = "https://nyuroam-guest.nyu.edu";
 our $url_1 = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
@@ -158,7 +158,7 @@ sub print_credentials {
 # main
 
 sub main() {
-  print "Current time: $date_today";
+  print "Current time: $date_today\n";
 
   URL_status_check();
   netid_prompt();
