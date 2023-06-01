@@ -1,17 +1,17 @@
-#!/usr/bin perl
-
-=begin comments
-Template for extracting table from HTML using HTML::TableExtract
-For reference:
-https://metacpan.org/pod/HTML::TableExtract
-=cut
+#!/usr/bin/perl
 
 use v5.30;
 
+use strict;
 use warnings;
-use diagnostics;
 
 use HTML::TableExtract;
+
+=begin comment
+Template for extracting table from HTML using HTML::TableExtract
+Ref: https://metacpan.org/pod/HTML::TableExtract
+=end comment
+=cut
 
 my $headers = ['Guest ID', 'Password'];
 
