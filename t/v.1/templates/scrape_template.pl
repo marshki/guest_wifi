@@ -1,21 +1,20 @@
-#!/usr/bin/perl  
-
-=begin comments
-Template for web scraping using LWP::UserAgent
-For reference: 
-https://metacpan.org/pod/LWP::UserAgent
-Some environments require Mozilla's CA cert bundle 
-For reference:
-https://metacpan.org/pod/Mozilla::CA
-=cut
+#!/usr/bin/perl
 
 use v5.30;
 
+use strict;
 use warnings;
-use diagnostics;
 
 use LWP::UserAgent;
 use Mozilla::CA; 
+
+=begin comment
+Template for web scraping using LWP::UserAgent
+Ref: https://metacpan.org/pod/LWP::UserAgent
+Some environments require Mozilla's CA cert bundle
+Ref: https://metacpan.org/pod/Mozilla::CA
+=end comment
+=cut
 
 our $url = "";
 
