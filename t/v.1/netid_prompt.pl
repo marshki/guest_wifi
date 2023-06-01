@@ -2,16 +2,17 @@
 
 use v5.30;
 
+use strict;
 use warnings;
-use diagnostics;
 
 use Test::Simple tests => 1;
 
 my $netid;
 
-=begin netid_prompt
-Prompt user for input. Null string is not valid.
+=begin comment
+Prompt user for input. Null string not valid.
 Returns: string
+=end comment
 =cut
 
 sub netid_prompt {
