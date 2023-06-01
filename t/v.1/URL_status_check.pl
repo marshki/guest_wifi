@@ -2,6 +2,7 @@
 
 use v5.30;
 
+use strict;
 use warnings;
 use diagnostics;
 
@@ -11,7 +12,7 @@ $ua->timeout(5);
 our $url="https://nyuroam-guest.nyu.edu";
 
 =begin URL_status_check
-Die if URL is not reachable.
+Die (quit) if URL is not reachable.
 =cut
 
 sub URL_status_check {
