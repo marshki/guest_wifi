@@ -10,9 +10,10 @@ $ua->timeout(5);
 
 our $url="https://nyuroam-guest.nyu.edu";
 
-=begin URL_status_check
+=begin comment
 Die (quit) if URL is not reachable.
-Max wait for resply is five (5) seconds.
+Max wait for reply is five (5) seconds.
+=end comment
 =cut
 
 sub URL_status_check {
