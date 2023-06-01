@@ -2,8 +2,8 @@
 
 use v5.30;
 
-use warnings; 
-use diagnostics;
+use strict;
+use warnings;
 
 use Test::Simple tests => 1;
 
@@ -11,9 +11,11 @@ use Term::ReadKey;
 
 my $password;
 
-=begin password_prompt 
+=begin comment
 Prompt user for input. Null string is not valid.
+Input obfuscated by: Term::ReadKey package.
 Returns: string
+=end comment
 =cut
 
 sub password_prompt {
