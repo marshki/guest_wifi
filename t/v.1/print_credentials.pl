@@ -1,17 +1,20 @@
 #!/usr/bin/perl
 
+use strict;
 use warnings;
-use diagnostics;
 
 use Test::Simple tests => 1;
 
 my $credentials = 'derp!eY  D00ooEw';
 
-=begin scrape_HTML
+=begin comment
 Formatted print statement.
+=end comment
 =cut
 
 sub print_credentials {
+
+  my $credentials = shift;
   print 'Guest ID',' ','Password', "\n";
   print '--------',' ','--------', "\n";
   print $credentials, "\n";
