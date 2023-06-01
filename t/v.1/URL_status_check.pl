@@ -12,6 +12,7 @@ $ua->timeout(5);
 our $url="https://nyuroam-guest.nyu.edu";
 
 =begin URL_status_check
+Max time to wait for server response is five (5) seconds.
 Die (quit) if URL is not reachable.
 =cut
 
