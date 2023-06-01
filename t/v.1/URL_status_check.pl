@@ -17,7 +17,6 @@ Max wait for reply is five (5) seconds.
 =cut
 
 sub URL_status_check {
-  disable diagnostics;
   my $html = get $url || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
 }
 
