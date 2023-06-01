@@ -2,8 +2,8 @@
 
 use v5.30;
 
+use strict;
 use warnings;
-use diagnostics;
 
 use Test::Simple tests => 1;
 
@@ -21,8 +21,9 @@ my $req = new HTTP::Request(GET => $url);
 
 our $HTML;
 
-=begin scrape_HTML
+=begin comment
 Scrape, then return parsed table to "HTML".
+=end comment
 =cut
 
 sub scrape_HTML {
@@ -34,3 +35,14 @@ sub scrape_HTML {
 }
 
 ok( @HTML eq @HTML );
+
+=begin comment
+# ... Code omitted ...
+
+# Test the scrape_HTML subroutine
+subtest "Test scrape_HTML" => sub {
+    my $actual_html = scrape_HTML();
+    ok($actual_html, "Scraped HTML is non-empty");
+};
+=end comment
+=cut
