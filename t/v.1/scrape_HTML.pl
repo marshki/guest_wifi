@@ -46,8 +46,8 @@ Test if returned HTML length is greater than zero (0).
 =cut
 
 eval {
-    my $actual_html = scrape_HTML();
-    ok(length($actual_html) > 0, "Scraped HTML is non-empty");
+    my $test_html = scrape_HTML();
+    ok(length($test_html) > 0, "Scraped HTML is non-empty");
 };
 
 if ($@) {
