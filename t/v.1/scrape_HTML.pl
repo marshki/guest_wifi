@@ -20,13 +20,16 @@ my $req = HTTP::Request->new(GET => $url);
 our $HTML;
 
 sub scrape_HTML {
+
     print "Scraping HTML from NYUROAM page... \n";
+
     $req->authorization_basic($netid, $password);
     my $response = $ua->request($req);
+
     if ($response->is_success) {
         return $HTML = $response->content;
     } else {
-        die "Failed to scrape HTML: " . $response->status_line;
+        die "Failed to scrape HTML from NYUROAM page." . $response->status_line;
     }
 }
 
