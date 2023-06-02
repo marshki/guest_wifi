@@ -13,7 +13,7 @@ my $password;
 
 =begin comment
 Prompt user for input. Null string is not valid.
-Input obfuscated by: Term::ReadKey package.
+Input obfuscated by Term::ReadKey package.
 Returns: string
 =end comment
 =cut
