@@ -19,6 +19,13 @@ my $req = HTTP::Request->new(GET => $url);
 
 our $HTML;
 
+=begin comment
+Die (quit) if URL is not reachable due to:
+- invalid credentials
+- host unreachable (offline, out-of-network)
+=end comment
+=cut
+
 sub scrape_HTML {
 
     print "Scraping HTML from NYUROAM page... \n";
@@ -33,7 +40,11 @@ sub scrape_HTML {
     }
 }
 
-# Test scrape_HTML
+=begin comment
+Test if returned HTML length is greater than zero (0).
+=end comment
+=cut
+
 eval {
     my $actual_html = scrape_HTML();
     ok(length($actual_html) > 0, "Scraped HTML is non-empty");
