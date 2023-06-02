@@ -15,7 +15,6 @@ my $netid = '';
 my $password = '';
 
 my $ua = LWP::UserAgent->new();
-$ua->timeout(5);  # Set timeout value in seconds
 my $req = HTTP::Request->new(GET => $url);
 
 our $HTML;
