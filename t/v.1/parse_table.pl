@@ -26,8 +26,9 @@ my $table_extract = HTML::TableExtract->new(headers => $headers);
 
 our $credentials;
 
-=begin scrape_HTML
+=begin comment
 Scrape, then return parsed table to "HTML".
+=end comment
 =cut
 
 sub scrape_HTML {
@@ -39,7 +40,8 @@ sub scrape_HTML {
 }
 
 =begin parse_table
-Extract, then return region of interest (ROI) from HTML.
+Extract region of interest (ROI) from HTML.
+Returns (HTML) row containing username and password.
 =cut
 
 sub parse_table {
