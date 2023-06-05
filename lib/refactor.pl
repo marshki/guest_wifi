@@ -66,6 +66,7 @@ use LWP::UserAgent;
 use Mozilla::CA;
 use HTML::TableExtract;
 
-our $date_today = localtime();
-print "$date_today\n";
+our $current_time = localtime();
+print "$current_time\n";
 
+our $url_0 = "https://nyuroam-guest.nyu.edu";
