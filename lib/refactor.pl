@@ -67,6 +67,22 @@ use Mozilla::CA;
 use HTML::TableExtract;
 
 our $current_time = localtime();
-print "$current_time\n";
 
 our $url_0 = "https://nyuroam-guest.nyu.edu";
+
+# URL_status_check
+
+sub URL_status_check {
+  disable diagnostics;
+  my $html = get $url_0 || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
+}
+
+# main
+
+sub main() {
+  print "Timestamp: $current_time\n";
+
+  URL_status_check();
+}
+
+&main();
