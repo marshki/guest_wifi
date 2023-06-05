@@ -52,7 +52,7 @@ sub parse_table {
 
   for my $row ($table->rows) {
     return our $credentials = join(" ", @$row);
-  } 
+  }
 }
 
 sub main() {
