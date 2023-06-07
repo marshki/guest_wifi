@@ -59,12 +59,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 =cut
 
 use LWP::Simple qw($ua get);
-$ua->timeout(5);
-
 use Term::ReadKey;
 use LWP::UserAgent;
 use Mozilla::CA;
 use HTML::TableExtract;
+
+$ua->timeout(5);
 
 our $current_time = localtime();
 
