@@ -69,9 +69,12 @@ $ua->timeout(5);
 our $current_time = localtime();
 
 our $url_0 = "https://nyuroam-guest.nyu.edu";
+our $url_1 = "https://nyuroam-guest.nyu.edu/cgi-bin/index.pl";
 
 my $netid;
 my $password;
+my $ua = LWP::UserAgent->new();
+my $req = HTTP::Request->new(GET => $url_1);
 
 # URL_status_check
 
@@ -114,6 +117,22 @@ while (1) {
   return $password;
 }
 
+# Scrape region of interest from HTML
+
+sub scrape_HTML {
+
+    print "Scraping HTML from NYUROAM page... \n";
+
+    $req->authorization_basic($netid, $password);
+    my $response = $ua->request($req);
+
+    if ($response->is_success) {
+        return $html = $response->content;
+    } else {
+        die "Failed to scrape HTML from NYUROAM page." . $response->status_line;
+    }
+}
+
 # Main
 
 sub main() {
@@ -122,6 +141,7 @@ sub main() {
   URL_status_check();
   netid_prompt();
   password_prompt();
+  #scrape_HTML();
 }
 
 &main();
