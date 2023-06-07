@@ -70,6 +70,8 @@ our $current_time = localtime();
 
 our $url_0 = "https://nyuroam-guest.nyu.edu";
 
+my $netid;
+
 # URL_status_check
 
 sub URL_status_check {
@@ -77,12 +79,29 @@ sub URL_status_check {
   my $html = get $url_0 || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
 }
 
-# main
+# NetID prompt
+
+sub netid_prompt {
+
+  while (1) {
+    print "Enter your NetID: ";
+
+    chomp($netid = <STDIN>);
+              
+    last if $netid ne '';
+    print "No input detected!\n";
+    
+  }
+  return $netid;
+}
+
+# Main
 
 sub main() {
   print "Timestamp: $current_time\n";
 
   URL_status_check();
+  netid_prompt();
 }
 
 &main();
