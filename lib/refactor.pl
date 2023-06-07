@@ -71,6 +71,7 @@ our $current_time = localtime();
 our $url_0 = "https://nyuroam-guest.nyu.edu";
 
 my $netid;
+my $password;
 
 # URL_status_check
 
@@ -86,13 +87,31 @@ sub netid_prompt {
   while (1) {
     print "Enter your NetID: ";
 
-    chomp($netid = <STDIN>);
+    chomp ($netid = <STDIN>);
               
     last if $netid ne '';
     print "No input detected!\n";
     
   }
   return $netid;
+}
+
+# Password prompt
+
+sub password_prompt {
+
+while (1) {
+  print "Enter your password: \n";
+
+  Term::ReadKey::ReadMode('noecho');
+  chomp ($password = Term::ReadKey::ReadLine(0));
+  Term::ReadKey::ReadMode('restore');
+
+  last if $password ne '';
+    print "No input detected!\n";
+
+  }
+  return $password;
 }
 
 # Main
@@ -102,6 +121,7 @@ sub main() {
 
   URL_status_check();
   netid_prompt();
+  password_prompt();
 }
 
 &main();
