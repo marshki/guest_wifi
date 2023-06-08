@@ -76,6 +76,9 @@ my $password;
 my $ua = LWP::UserAgent->new();
 my $req = HTTP::Request->new(GET => $url_1);
 
+my @HTML;
+our $HTML;
+
 # URL_status_check
 
 sub URL_status_check {
@@ -124,13 +127,7 @@ sub scrape_HTML {
     print "Scraping HTML from NYUROAM page... \n";
 
     $req->authorization_basic($netid, $password);
-    my $response = $ua->request($req);
-
-    if ($response->is_success) {
-        return $html = $response->content;
-    } else {
-        die "Failed to scrape HTML from NYUROAM page." . $response->status_line;
-    }
+    return $HTML = $ua->request($req)->content();
 }
 
 # Main
