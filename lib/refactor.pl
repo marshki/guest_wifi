@@ -128,6 +128,9 @@ sub scrape_HTML {
 
     $req->authorization_basic($netid, $password);
     return $HTML = $ua->request($req)->content();
+
+    # TODO: Add error handling.
+
 }
 
 # Main
