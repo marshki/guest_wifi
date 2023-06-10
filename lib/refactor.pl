@@ -129,8 +129,6 @@ while (1) {
 #    $req->authorization_basic($netid, $password);
 #    return $HTML = $ua->request($req)->content();
 
-    # TODO: Add error handling.
-
 #}
 
 sub scrape_HTML {
