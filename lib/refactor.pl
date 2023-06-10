@@ -122,15 +122,28 @@ while (1) {
 
 # Scrape region of interest from HTML
 
-sub scrape_HTML {
+#sub scrape_HTML {
 
-    print "Scraping HTML from NYUROAM page... \n";
+#    print "Scraping HTML from NYUROAM page... \n";
 
-    $req->authorization_basic($netid, $password);
-    return $HTML = $ua->request($req)->content();
+#    $req->authorization_basic($netid, $password);
+#    return $HTML = $ua->request($req)->content();
 
     # TODO: Add error handling.
 
+#}
+
+sub scrape_HTML {
+    print "Scraping HTML from NYUROAM page... \n";
+
+    $req->authorization_basic($netid, $password);
+
+    my $response = $ua->request($req);
+    if ($response->is_success) {
+	return $HTML = $response->content;
+    } else {
+	die "Failed to scrape HTML: " . $response->status_line . "\n";
+    }
 }
 
 # Main
@@ -141,7 +154,7 @@ sub main() {
   URL_status_check();
   netid_prompt();
   password_prompt();
-  #scrape_HTML();
+  scrape_HTML();
 }
 
 &main();
