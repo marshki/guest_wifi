@@ -18,7 +18,7 @@ guest_wifi.pl v.1
 
 Extract weekly "nyuguest" WiFi credentials using Perl.
 Requires access to NYU-NET--campus wide-area network (WAN)--and a valid NetID.
-Credentials are valid for one(1) week from 12:00:01 EST Monday.
+Credentials are valid for one(1) week from 12:00:00 EST Monday.
 
 =head2 SAMPLE OUTPUT
 
@@ -122,26 +122,31 @@ while (1) {
 
 # Scrape region of interest from HTML
 
-#sub scrape_HTML {
-
-#    print "Scraping HTML from NYUROAM page... \n";
-
-#    $req->authorization_basic($netid, $password);
-#    return $HTML = $ua->request($req)->content();
-
-#}
-
 sub scrape_HTML {
     print "Scraping HTML from NYUROAM page... \n";
 
     $req->authorization_basic($netid, $password);
 
     my $response = $ua->request($req);
+
     if ($response->is_success) {
 	return $HTML = $response->content;
     } else {
 	die "Failed to scrape HTML: " . $response->status_line . "\n";
     }
+}
+
+# Parse region of interest from scraped HTML
+
+sub parse_table {
+  print "Parsing region of interest (ROI) from HTML... \n";
+
+  $table_extract->parse($HTML);
+  my ($table) = $table_extract->tables;
+
+  for my $row ($table->rows) {
+    return our $credentials = join(" ", @$row);
+  }
 }
 
 # Main
@@ -153,6 +158,7 @@ sub main() {
   netid_prompt();
   password_prompt();
   scrape_HTML();
+  parse_table();
 }
 
 &main();
