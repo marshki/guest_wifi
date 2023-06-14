@@ -79,6 +79,11 @@ my $req = HTTP::Request->new(GET => $url_1);
 my @HTML;
 our $HTML;
 
+my $headers = ['Guest ID', 'Password'];
+my $table_extract = HTML::TableExtract->new(headers => $headers);
+
+our $credentials;
+
 # URL_status_check
 
 sub URL_status_check {
@@ -127,13 +132,7 @@ sub scrape_HTML {
 
     $req->authorization_basic($netid, $password);
 
-    my $response = $ua->request($req);
-
-    if ($response->is_success) {
-	return $HTML = $response->content;
-    } else {
-	die "Failed to scrape HTML: " . $response->status_line . "\n";
-    }
+    return $HTML = $ua->request($req)->content();
 }
 
 # Parse region of interest from scraped HTML
@@ -149,6 +148,14 @@ sub parse_table {
   }
 }
 
+# Print credentials
+
+sub print_credentials {
+  print 'Guest ID',' ','Password', "\n";
+  print '--------',' ','--------', "\n";
+  print $credentials, "\n";
+}
+
 # Main
 
 sub main() {
@@ -159,6 +166,7 @@ sub main() {
   password_prompt();
   scrape_HTML();
   parse_table();
+  print_credentials();
 }
 
 &main();
