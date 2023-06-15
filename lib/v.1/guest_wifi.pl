@@ -85,14 +85,14 @@ my $table_extract = HTML::TableExtract->new(headers => $headers);
 
 our $credentials;
 
-# URL_status_check
+# URL status check
 
 sub URL_status_check {
   disable diagnostics;
   my $html = get $url_0 || die "Request timed out. Are you connected to NYU-NET? Exiting.\n";
 }
 
-# netid_prompt
+# NetID prompt
 
 sub netid_prompt {
 
@@ -107,7 +107,7 @@ sub netid_prompt {
   return $netid;
 }
 
-# password_prompt
+# Password prompt
 
 sub password_prompt {
 
@@ -124,7 +124,7 @@ while (1) {
   return $password;
 }
 
-# scrape_HTML
+# Scrape region of interest from HTML
 
 sub scrape_HTML {
   print "Scraping HTML from NYUROAM page... \n";
@@ -134,7 +134,7 @@ sub scrape_HTML {
   return $HTML = $ua->request($req)->content();
 }
 
-# parse_table
+# Parse region of interest from scraped HTML
 
 sub parse_table {
   print "Parsing region of interest (ROI) from HTML... \n";
@@ -147,7 +147,7 @@ sub parse_table {
   }
 }
 
-# print_credentials
+# Print credentials
 
 sub print_credentials {
   print 'Guest ID',' ','Password', "\n";
@@ -155,7 +155,7 @@ sub print_credentials {
   print $credentials, "\n";
 }
 
-# main
+# Main
 
 sub main() {
   print "Current time: $date_today\n";
