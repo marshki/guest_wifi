@@ -47,4 +47,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #### NOTES
 
-NYU will be sunsetting the guest WiFi credentials mechanism as described [here](https://www.nyu.edu/life/information-technology/about-nyu-it/nyu-it-news/the-download/the-download-features/nyuguest-wifi-portal.html). The replacement portal allows users with a valid NetID to self-generate credentials [here](https://guestwifi.nyu.edu/). This will be incorporated in to a future version of this tool.
+NYU put the legacy Guest WiFi portal out to pasture as described [here](https://www.nyu.edu/life/information-technology/about-nyu-it/nyu-it-news/the-download/the-download-features/nyuguest-wifi-portal.html). The replacement portal allows users with a valid NetID to self-generate credentials [here](https://guestwifi.nyu.edu/). This will be incorporated in to a future version of this tool.
