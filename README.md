@@ -51,7 +51,7 @@ subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
@@ -61,7 +61,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 #### NOTES
 
 NYU put the legacy Guest WiFi portal out to pasture as described
-[here](https://www.nyu.edu/life/information-technology/about-nyu-it/nyu-it-news/
- the-download/the-download-features/nyuguest-wifi-portal.html).
+[here](https://www.nyu.edu/life/information-technology/about-nyu-it/nyu-it-news
+/the-download/the-download-features/nyuguest-wifi-portal.html).
 The replacement portal allows users with a valid NetID 
 to self-generate credentials [here](https://guestwifi.nyu.edu/).
