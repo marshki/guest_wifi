@@ -1,3 +1,10 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/<br>
+73f9db3b3cde41b49bd9ac576c1ed66d)](https://www.codacy.com/gh/<br>
+marshki/guest_wifi/dashboard?utm_source=github.com&amp;<br>
+utm_medium=referral&amp;utm_content=marshki/guest_wifi&amp;<br>
+utm_campaign=Badge_Grade)
+
+
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/\
 73f9db3b3cde41b49bd9ac576c1ed66d)](https://www.codacy.com/gh/\
 marshki/guest_wifi/dashboard?utm_source=github.com&amp;\
