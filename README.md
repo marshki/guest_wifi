@@ -10,15 +10,7 @@
 
 ### SYNOPSIS
 
-[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a8a044d20348ce1050e13<br>
-&id=kb_article_view&sysparm_rank=12&sysparm_tsqueryId=0bd7a2721b537810839598651a4bcbda)
-
-
-Extract weekly [nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910<br>
-f5a8a044d20348ce1050e13&id=kb_article_view&sysparm_rank=12&sysparm_tsquery<br>
-Id=0bd7a2721b537810839598651a4bcbda)
-
-"[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a8a044d20348ce1050e13&id=kb_article_view&sysparm_rank=12&sysparm_tsqueryId=0bd7a2721b537810839598651a4bcbda)" WiFi credentials using Perl. Requires
+Extract weekly "[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a8a044d20348ce1050e13&id=kb_article_view&sysparm_rank=12&sysparm_tsqueryId=0bd7a2721b537810839598651a4bcbda)" WiFi credentials using Perl. Requires
 access to NYU-NET (campus wide area network (*WAN*)) and a valid NetID.Credentials
 are valid for one (1) week from 12:00:00 Eastern Standard Time (EST) Monday.
 
