@@ -10,8 +10,8 @@
 
 ### SYNOPSIS
 
-Extract weekly "[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a8a044d20348ce1050e13&id=kb_article_view&sysparm_rank=12&sysparm_tsqueryId=0bd7a2721b537810839598651a4bcbda)" WiFi credentials using Perl. Requires 
-access to NYU-NET (campus wide area network (*WAN*)) and a valid NetID.Credentials 
+Extract weekly "[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a8a044d20348ce1050e13&id=kb_article_view&sysparm_rank=12&sysparm_tsqueryId=0bd7a2721b537810839598651a4bcbda)" WiFi credentials using Perl. Requires
+access to NYU-NET (campus wide area network (*WAN*)) and a valid NetID.Credentials
 are valid for one (1) week from 12:00:00 Eastern Standard Time (EST) Monday.
 
 #### SAMPLE OUTPUT
@@ -41,26 +41,26 @@ Copyright <2021> <M. Krinitz>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to 
-use, copy, modify, merge, publish, distribute, sublicense, 
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense,
 and/or sell copies of the Software,
-and to permit persons to whom the Software is furnished to do so, 
+and to permit persons to whom the Software is furnished to do so,
 subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #### NOTES
 
 NYU put the legacy Guest WiFi portal out to pasture as described
 [here](https://www.nyu.edu/life/information-technology/about-nyu-it/nyu-it-news/the-download/the-download-features/nyuguest-wifi-portal.html).
-The replacement portal allows users with a valid NetID 
+The replacement portal allows users with a valid NetID
 to self-generate credentials [here](https://guestwifi.nyu.edu/).
