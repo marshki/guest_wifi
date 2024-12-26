@@ -1,6 +1,8 @@
 # Unit Tests
 
-## v.0 
+Tests use Perl's [Test::Simple](https://perldoc.perl.org/Test::Simple) utility.
+
+## v.0
 
 Tests invoke several `*NIX` utilities, and are **not**
 cross-platform (OS) compatible.
