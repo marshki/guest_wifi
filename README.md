@@ -10,6 +10,10 @@
 
 ### SYNOPSIS
 
+[nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910f5a8a044d20348ce1050e13<br>
+&id=kb_article_view&sysparm_rank=12&sysparm_tsqueryId=0bd7a2721b537810839598651a4bcbda)
+
+
 Extract weekly [nyuguest](https://nyu.service-now.com/sp?sys_kb_id=2a8496910<br>
 f5a8a044d20348ce1050e13&id=kb_article_view&sysparm_rank=12&sysparm_tsquery<br>
 Id=0bd7a2721b537810839598651a4bcbda)
